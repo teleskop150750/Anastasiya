@@ -3,7 +3,8 @@
 :root {
   --color-melrose: #b8c4ff;
   --color-melrose-dark: #6e7abb;
-  --color-white: #fcfcfc;
+  --color-white: #fdfdfd;
+  --color-gray: #f1f1f1;
 }
 
 .visually-hidden {

@@ -1,0 +1,27 @@
+.description {
+  max-width: 45em;
+  padding: 1rem;
+  margin: 0 auto;
+  background-color: var(--color-white);
+  border-radius: 0.25rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+@media (min-width: 750px) {
+  .description {
+    padding: 3rem;
+  }
+}
+
+.description__title {
+  margin-bottom: 0.5rem;
+  font-size: 3.5em;
+  font-weight: 300;
+  line-height: 1.4;
+}
+
+.description__text {
+  margin-bottom: 1rem;
+  font-size: 1.25em;
+  font-weight: 300;
+}

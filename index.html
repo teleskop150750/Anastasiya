@@ -5,11 +5,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <link rel="stylesheet" href="libs/photostack.css">
   <link rel="stylesheet" href="core.css">
 </head>
 
 <body class="page__body">
-  <header class="header page__header">
+  <header class="header header--shadow page__header">
     <div class="header__inner">
       <nav class="nav header__nav">
         <p class="nav__logo">En Avant</p>
@@ -19,10 +20,10 @@
         <div class="nav__list">
           <ul class="nav__list-inner">
             <li class="nav__item">
-              <a href="" class="nav__link">О нас</a>
+              <a href="about.html" class="nav__link">О нас</a>
             </li>
             <li class="nav__item">
-              <a href="" class="nav__link nav__link--active">Написать нам</a>
+              <a href="" class="nav__link">Написать нам</a>
             </li>
             <li class="nav__item">
               <a href="" class="nav__link">Контакты</a>
@@ -41,10 +42,10 @@
       </nav>
     </div>
   </header>
-  <main class="main page__main">
+  <main class="main main--index page__main">
     <h1 class="visually-hidden">Главная страница</h1>
 
-    <section id="photostack" class="photostack">
+    <section id="photostack-3" class="photostack">
       <div>
         <figure>
           <div class="photostack-img"><img src="img/17.jpg" alt="img05" /></div>
@@ -97,13 +98,17 @@
       </div>
     </section>
   </main>
-  <footer class="footer page__footer">
+  <footer class="footer footer--shadow page__footer">
     <div class="footer__inner">
       <p class="footer__copy">ГПОУ ТО "Донской колледж информационных технологий "Кузьмина Анастасия 4-П-1 © 2021</p>
     </div>
   </footer>
 
   <script src="core.js"></script>
+  <script src="libs/modernizr.min.js"></script>
+  <script src="libs/classie.js"></script>
+  <script src="libs/photostack.js"></script>
+  <script src="index.js"></script>
 </body>
 
 </html>

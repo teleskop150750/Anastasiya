@@ -9,8 +9,31 @@
 .page__body {
   display: grid;
   grid-template-rows: min-content 1fr min-content;
-  max-width: 1921px;
+  max-width: 1920px;
   min-height: 100vh;
   margin: 0 auto;
   overflow-x: hidden;
+}
+
+@media (min-width: 1050px) {
+  .page__body {
+    font-size: 1.2em;
+  }
+}
+@media (min-width: 1050px) {
+  .page__body {
+    font-size: 1.1em;
+  }
+}
+
+@media (min-width: 1080px) {
+  .page__body {
+    font-size: 1.2em;
+  }
+}
+
+@media (min-width: 1290px) {
+  .page__body {
+    font-size: 1.3em;
+  }
 }

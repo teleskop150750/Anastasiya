@@ -1,5 +1,11 @@
 .footer {
+  position: relative;
+  z-index: 1000;
   background-color: var(--color-melrose);
+}
+
+.footer--shadow {
+  box-shadow: 0 -0.5rem 1rem rgba(0, 0, 0, 0.15);
 }
 
 .footer__inner {
