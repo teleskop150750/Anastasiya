@@ -5,7 +5,4 @@
 @import 'styles/nav.css';
 @import 'styles/nav-botton.css';
 @import 'styles/keyframes.css';
-
-.footer {
-  background-color: var(--color-melrose);
-}
+@import 'styles/footer.css';

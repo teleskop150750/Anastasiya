@@ -1,0 +1,13 @@
+.footer {
+  background-color: var(--color-melrose);
+}
+
+.footer__inner {
+  padding: 1rem;
+}
+
+.footer__copy {
+  font-weight: 300;
+  color: var(--color-melrose-dark);
+  text-align: center;
+}

@@ -115,7 +115,7 @@
   width: 100%;
 }
 
-@media (min-width: 920px) {
+@media (min-width: 921px) {
   .nav__button {
     display: none;
   }
