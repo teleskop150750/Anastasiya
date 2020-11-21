@@ -3,9 +3,9 @@
 /* eslint-disable no-underscore-dangle */
 new Photostack(document.getElementById('photostack-3'), {
   showNavigation: false,
-  afterShowPhoto: function (ps) {
-    setTimeout(function () {
+  afterShowPhoto(ps) {
+    setTimeout(() => {
       ps._navigate('next');
     }, 3500);
-  }
+  },
 });
