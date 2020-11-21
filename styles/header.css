@@ -1,0 +1,10 @@
+/* Header */
+
+.header {
+  position: relative;
+  background-color: var(--color-melrose);
+}
+
+.header__inner {
+  padding: 1rem;
+}

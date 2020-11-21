@@ -1,0 +1,11 @@
+@import 'styles/fonts.css';
+@import 'styles/global.css';
+@import 'styles/page.css';
+@import 'styles/header.css';
+@import 'styles/nav.css';
+@import 'styles/nav-botton.css';
+@import 'styles/keyframes.css';
+
+.footer {
+  background-color: var(--color-melrose);
+}

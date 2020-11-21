@@ -1,0 +1,21 @@
+/* Global */
+
+:root {
+  --color-melrose: #b8c4ff;
+  --color-white: #fcfcfc;
+  --color-melrose-dark: #6e7abb;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+a,
+input,
+button {
+  font: inherit;
+  color: inherit;
+}

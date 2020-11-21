@@ -1,0 +1,16 @@
+/* Page */
+
+.page {
+  font-family: 'Roboto', sans-serif;
+  color: #000000;
+  background-color: #ffffff;
+}
+
+.page__body {
+  display: grid;
+  grid-template-rows: min-content 1fr min-content;
+  max-width: 1921px;
+  min-height: 100vh;
+  margin: 0 auto;
+  overflow-x: hidden;
+}
