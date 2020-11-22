@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="libs/photostack.css">
   <link rel="stylesheet" href="core.css">
   <link rel="stylesheet" href="about.css">
+  <link rel="stylesheet" href="form.css">
 </head>
 
 <body class="page__body">
@@ -21,10 +22,10 @@
         <div class="nav__list">
           <ul class="nav__list-inner">
             <li class="nav__item">
-              <a class="nav__link nav__link--active">О нас</a>
+              <a href="about.html" class="nav__link">О нас</a>
             </li>
             <li class="nav__item">
-              <a href="mess.html" class="nav__link">Написать нам</a>
+              <a class="nav__link nav__link--active">Написать нам</a>
             </li>
             <li class="nav__item">
               <a href="" class="nav__link">Контакты</a>
@@ -44,22 +45,33 @@
     </div>
   </header>
   <main class="main page__main">
-    <section class="card">
-      <h1 class="card__title">О нас</h1>
-      <p class="card__text">
-        Одежда – популярный товар, который покупают и онлайн, и в розничных магазинах. Женская,
-        детская, мужская, одежда для торжеств и повседневная – огромное количество разных ниш существует в этом
-        сегменте.
-      </p>
-      <p class="card__text">
-        Можно выбрать направление развития мультибрендового магазина или магазина одежды определенной
-        страны-производителя, одежду для конкретной категории людей или одежду для определенных случаев.
-      </p>
-      <p class="card__text">
-        Корона-кризис и введенные в связи с ним ограничения существенно повлияли на многие сферы бизнеса и на формат
-        поведения потребителей в целом. И если компании, работающие в офлайн-среде, закрылись или испытывали трудности
-        в это время, онлайн-продажи, наоборот, росли и продолжают расти.
-      </p>
+    <section class="card card--form">
+      <form class="form card__form">
+        <div class="form__group">
+          <label class="form__label" for="name">Ваше имя</label>
+          <input class="form__input form__input" type="text" id="name" name="name"  autocomplete="off">
+        </div>
+        <div class="form__group">
+          <label class="form__label" for="email"> Ваш email</label>
+          <input class="form__input form__input" type="email" id="email" name="email" autocomplete="off">
+        </div>
+        <div class="form__group">
+          <label class="form__label form__label--value" for="title">Выбирете Тему</label>
+          <select class="form__input" id="title" name="title">
+            <option value="thanks">Благодарность</option>
+            <option value="sentence">Предложение</option>
+            <option value="complaint">Жалоба</option>
+          </select>
+        </div>
+        <div class="form__group form__group--textarea">
+          <label class="form__label form__label--textarea" for="text">Сообщение</label>
+          <textarea class="form__input form__textarea" id="text" name="text" autocomplete="off"></textarea>
+        </div>
+        <button type="submit" class="form__button">Отправить</button>
+      </form>
+      <div class="card__img-wrapper">
+        <img class="card__img" src="img/hanger.webp" alt="вешалка">
+      </div>
     </section>
   </main>
   <footer class="footer page__footer">
@@ -69,6 +81,7 @@
   </footer>
 
   <script src="core.js"></script>
+  <script src="form.js"></script>
 </body>
 
 </html>

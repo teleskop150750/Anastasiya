@@ -27,7 +27,11 @@
 
 a,
 input,
+select,
+textarea,
 button {
   font: inherit;
   color: inherit;
+  background: transparent;
+  border: none;
 }
