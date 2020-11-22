@@ -17,16 +17,11 @@
 
 @media (min-width: 1050px) {
   .page__body {
-    font-size: 1.2em;
-  }
-}
-@media (min-width: 1050px) {
-  .page__body {
     font-size: 1.1em;
   }
 }
 
-@media (min-width: 1080px) {
+@media (min-width: 1110px) {
   .page__body {
     font-size: 1.2em;
   }
