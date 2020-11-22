@@ -5,12 +5,14 @@ const navToggle = function f() {
   this.removeEventListener('click', navToggle);
 
   if (!nav.classList.contains('nav__list--open')) {
+    nav.classList.add('nav__list--opening');
     nav.style.height = `${nav.scrollHeight}px`;
 
     this.classList.remove('nav-button--open');
     this.classList.add('nav-button--close');
 
     const transitionShow = () => {
+      nav.classList.remove('nav__list--opening');
       nav.classList.add('nav__list--open');
       nav.removeEventListener('transitionend', transitionShow);
       this.addEventListener('click', navToggle);
