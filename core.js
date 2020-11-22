@@ -10,6 +10,7 @@ const navToggle = function f() {
 
     this.classList.remove('nav-button--open');
     this.classList.add('nav-button--close');
+    this.setAttribute('aria-label', 'закрыть меню');
 
     const transitionShow = () => {
       nav.classList.remove('nav__list--opening');
@@ -24,6 +25,7 @@ const navToggle = function f() {
 
     this.classList.remove('nav-button--close');
     this.classList.add('nav-button--open');
+    this.setAttribute('aria-label', 'открыть меню');
 
     const transitionHidden = () => {
       nav.removeAttribute('style');
