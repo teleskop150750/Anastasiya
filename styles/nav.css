@@ -1,7 +1,9 @@
 /* Nav */
 
 .nav {
+  flex-grow: 1;
   display: flex;
+  align-items: center;
 }
 
 @media (min-width: 0) and (max-width: 936px) {
@@ -13,7 +15,6 @@
 @media (min-width: 937px) {
   .nav {
     gap: 1.5em;
-    align-items: center;
   }
 }
 

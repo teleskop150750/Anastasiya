@@ -12,6 +12,8 @@
 }
 
 .header__inner {
+  display: flex;
+  align-self: center;
   max-width: 1360px;
   padding: 1rem;
   margin: 0 auto;
