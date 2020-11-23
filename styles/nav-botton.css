@@ -1,6 +1,6 @@
 /* nav-button */
 
-@media (min-width: 0) and (max-width: 936px) {
+@media (min-width: 0) and (max-width: 955px) {
   .nav-button {
     display: flex;
     align-items: center;

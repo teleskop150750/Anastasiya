@@ -8,13 +8,20 @@
     "airbnb-base"
   ],
   "parserOptions": {
-    "ecmaVersion": 12
+    "ecmaVersion": 12,
+    "sourceType": "module"
   },
   "parser": "babel-eslint",
   "plugins": [
     "vue"
   ],
   "rules": {
+    "import/extensions": [
+      1,
+      {
+        "js": "always"
+      }
+    ],
     "max-len": [
       1,
       {
