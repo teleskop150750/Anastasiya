@@ -1,4 +1,5 @@
 import SlideToggle from './scripts/slideToggle.js';
+
 // navToggle
 const nav = document.querySelector('.nav__list');
 const navButton = document.querySelector('.nav-button');
