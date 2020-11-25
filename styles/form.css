@@ -87,7 +87,7 @@
   position: absolute;
   top: 1.44em;
   left: 0;
-  color: var(--color-grey);
+  color: var(--color-black-a54);
   pointer-events: none;
   transition: 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
