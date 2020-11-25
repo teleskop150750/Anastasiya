@@ -2,7 +2,7 @@
 
 .main {
   padding: 3rem 1rem;
-  background-color: var(--color-gray);
+  background-color: var(--color-grey-lightest);
 }
 
 .main--index {
