@@ -49,10 +49,9 @@
 }
 
 .card__title {
-  margin-bottom: 0.5em;
   font-size: 3.5em;
   font-weight: 300;
-  line-height: 1.4;
+  line-height: 1.5;
 }
 
 .card__text {
