@@ -1,4 +1,5 @@
 import formDefault from './formDefault.js';
+import modalOpen from './modalOpen.js';
 
 export default (form, inputs) => {
   form.addEventListener('submit', (e) => {
@@ -14,5 +15,7 @@ export default (form, inputs) => {
     if (!isErrors) {
       formDefault(inputs);
     }
+    const modal = document.querySelector('.modal');
+    modalOpen(modal);
   });
 };

@@ -16,6 +16,10 @@
   font-size: 1em;
 }
 
+.page__body--lock {
+  overflow: hidden;
+}
+
 @media (min-width: 1050px) {
   .page__body {
     font-size: 1.1em;

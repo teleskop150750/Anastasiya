@@ -28,10 +28,9 @@ export default class SlideToggle {
   slideUp() {
     this.beforeSlideUp();
     this.target.style.height = `${this.target.offsetHeight}px`;
+    this.target.style.height = `${this.target.offsetHeight}px`;
     this.target.classList.remove(this.open);
     this.target.classList.add(this.opening);
-    // eslint-disable-next-line no-unused-expressions
-    this.target.offsetHeight;
     this.target.style.height = 0;
     const transitionendHandler = () => {
       this.target.style.removeProperty('height');
