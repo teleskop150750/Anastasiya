@@ -4,6 +4,7 @@
   display: flex;
   flex-grow: 1;
   align-items: center;
+  font-size: 1em;
 }
 
 @media (min-width: 0) and (max-width: 955px) {
@@ -67,8 +68,8 @@
   .nav__list-inner {
     display: grid;
     grid-template-columns: max-content;
-    row-gap: 1rem;
-    padding: 0 1rem 1rem;
+    row-gap: 1em;
+    padding: 0 1em 1em;
   }
 }
 

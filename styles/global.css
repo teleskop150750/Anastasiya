@@ -1,12 +1,14 @@
 /* Global */
 
 :root {
+  --color-red: #d62d0f;
   --color-melrose: #b8c4ff;
   --color-melrose-lightest: #abb5ec;
   --color-melrose-dark: #6e7abb;
   --color-white: #fdfdfd;
-  --color-grey-lightest: #f1f1f1;
+  --color-grey-lightest: #f7f9fa;
   --color-black-a15: rgba(0, 0, 0, 0.15);
+  --color-black-a25: rgba(0, 0, 0, 0.25);
   --color-black-a42: rgba(0, 0, 0, 0.42);
   --color-black-a54: rgba(0, 0, 0, 0.54);
 }
