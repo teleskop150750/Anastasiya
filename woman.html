@@ -4,9 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>О нас</title>
+  <title>Написать нам</title>
   <link rel="stylesheet" href="core.css">
-  <link rel="stylesheet" href="about.css">
+  <link rel="stylesheet" href="woman.css">
 </head>
 
 <body class="page__body">
@@ -23,7 +23,7 @@
         <div class="nav__list">
           <ul class="nav__list-inner">
             <li class="nav__item">
-              <a class="nav__link nav__link--active">О нас</a>
+              <a href="about.html" class="nav__link">О нас</a>
             </li>
             <li class="nav__item">
               <a href="mess.html" class="nav__link">Написать нам</a>
@@ -32,7 +32,7 @@
               <a href="contact.html" class="nav__link">Контакты</a>
             </li>
             <li class="nav__item">
-              <a href="woman.html" class="nav__link">Женская одежна</a>
+              <a class="nav__link nav__link--active">Женская одежна</a>
             </li>
             <li class="nav__item">
               <a href="" class="nav__link">Мужская одежна</a>
@@ -48,25 +48,27 @@
   </header>
 
   <main class="main page__main">
-    <section class="card">
-      <h1 class="card__title">О нас</h1>
+    <h1 class="visually-hidden">Написать сообщение</h1>
 
-      <p class="card__text">
-        Одежда – популярный товар, который покупают и онлайн, и в розничных магазинах. Женская,
-        детская, мужская, одежда для торжеств и повседневная – огромное количество разных ниш существует в этом
-        сегменте.
-      </p>
+    <section class="goods main__goods">
+      <div class="goods__inner">
+        <div class="goods__buttons">
+          <button class="goods__button" type="button">Показать все</button>
+          <button class="goods__button" type="button">Куртки</button>
+          <button class="goods__button" type="button">Джинсы</button>
+          <button class="goods__button" type="button">Футболки</button>
+          <button class="goods__button" type="button">Спорт</button>
+        </div>
+      </div>
 
-      <p class="card__text">
-        Можно выбрать направление развития мультибрендового магазина или магазина одежды определенной
-        страны-производителя, одежду для конкретной категории людей или одежду для определенных случаев.
-      </p>
-
-      <p class="card__text">
-        Корона-кризис и введенные в связи с ним ограничения существенно повлияли на многие сферы бизнеса и на формат
-        поведения потребителей в целом. И если компании, работающие в офлайн-среде, закрылись или испытывали трудности
-        в это время, онлайн-продажи, наоборот, росли и продолжают расти.
-      </p>
+      <ul class="goods__list">
+        <li class="goods__item">
+          <article class="good goods__good">
+            <div class="good__slider"></div>
+            .
+          </article>
+        </li>
+      </ul>
     </section>
   </main>
 
@@ -75,8 +77,20 @@
       <p class="footer__copy">ГПОУ ТО "Донской колледж информационных технологий" Кузьмина Анастасия 4-П-1 © 2021</p>
     </div>
   </footer>
-
+  <div class="modal modal--close" style="display: none;">
+    <div class="modal__content">
+      <div class="modal__header">
+        <h5 class="modal__title">Отправлено</h5>
+        <button class="modal__button" type="button" aria-label="закрыть модальное окно"></button>
+      </div>
+      <div class="modal__body">
+        <p class="modal__text">Спасибо за благодарность.</p>
+        <p class="modal__text">Мы рады что вы остались довольны!</p>
+      </div>
+    </div>
+  </div>
   <script src="core.js" type="module"></script>
+  <!-- <script src="mess.js" type="module"></script> -->
 </body>
 
 </html>

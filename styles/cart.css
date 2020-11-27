@@ -1,5 +1,8 @@
+/* card */
+
 .card {
-  max-width: 45em;
+  width: 100%;
+  max-width: 50em;
   padding: 1em;
   margin: 0 auto;
   font-size: 1em;
@@ -12,10 +15,6 @@
   .card {
     padding: 2.5em;
   }
-}
-
-.card--form {
-  max-width: 50em;
 }
 
 @media (min-width: 700px) {
@@ -60,4 +59,19 @@
   margin-bottom: 1em;
   font-size: 1.25em;
   font-weight: 300;
+}
+
+.card__text--strong {
+  font-weight: 400;
+}
+
+.card__text--link {
+  text-decoration: none;
+}
+
+.card__map {
+  min-height: 400px;
+  background-image: url('../img/map.png');
+  background-position: center;
+  background-size: cover;
 }
