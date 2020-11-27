@@ -2,6 +2,7 @@
   max-width: 45em;
   padding: 1em;
   margin: 0 auto;
+  font-size: 1em;
   background-color: var(--color-white);
   border-radius: 0.25rem;
   box-shadow: 0 0.5rem 1rem var(--color-black-a15);
