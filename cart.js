@@ -8,18 +8,17 @@ const arrGoodsAll = [...manCatalog, ...womanCatalog];
 const vm = new Vue({
   el: '#cart',
   data: {
+    arrLS: [],
     arrGoodsAll: [],
-    arrGoodsBoy: [],
+    arrGoodsBuy: [],
     df: 1234,
   },
 
   computed: {
-    arrBoy() {
-      if (localStorage.getItem('cart')) {
-        const arrLS = localStorage.getItem('cart').split(',');
+    arrBuy() {
+      if (this.arrLS.length > 0) {
         const arr = [];
-
-        arrLS.forEach((itemLS) => {
+        this.arrLS.forEach((itemLS) => {
           const goodByIndex = this.arrGoodsAll.findIndex(
             (item) => item.id === +itemLS,
           );
@@ -29,17 +28,27 @@ const vm = new Vue({
         });
         return arr;
       }
-      return [0, 3];
+      return [];
     },
     allPrice() {
-      if (this.arrBoy.length > 0) {
-        return this.arrBoy.reduce((sum, current) => sum + current.count, 0);
+      if (this.arrBuy.length > 0) {
+        return this.arrBuy.reduce((sum, current) => sum + current.count, 0);
       }
       return 0;
     },
   },
+  methods: {
+    deleteOne(id) {
+      const arr = this.arrLS.filter((itemLS) => +itemLS !== id);
+      this.arrLS = arr;
+      localStorage.setItem('cart', arr);
+    },
+  },
   created() {
     this.arrGoodsAll = arrGoodsAll;
+    if (localStorage.getItem('cart')) {
+      this.arrLS = localStorage.getItem('cart').split(',');
+    }
   },
 
   mounted() {

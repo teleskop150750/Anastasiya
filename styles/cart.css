@@ -7,8 +7,17 @@
 }
 
 .cart__header {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  gap: 0.5rem;
+  justify-items: flex-end;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 400px) {
+  .cart__header {
+    display: flex;
+    justify-content: space-between;
+  }
 }
 
 .cart__bay-all {

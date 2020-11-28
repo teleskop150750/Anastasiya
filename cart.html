@@ -56,13 +56,13 @@
         <div class="cart__header">
           <button class="cart__button cart__button--clear">Удалить все</button>
           <div class="cart__bay-all">
-            <p class="cart__price-all">{{ allPrice}}</p>
+            <p class="cart__price-all">Цена: {{ allPrice}}р</p>
             <button class="cart__button cart__button--buy-all">Купить все</button>
           </div>
         </div>
 
         <ul class="goods__list goods__list--cart">
-          <li class="goods__item" v-for="(key, i) in arrBoy">
+          <li class="goods__item" v-for="(key, i) in arrBuy">
             <article class="good good--cart goods__good">
               <div :id="'carouselExampleControls' + i" data-ride="carousel" class="carousel slide">
                 <div class="carousel-inner">
@@ -86,7 +86,13 @@
               </div>
               <div class="good__content">
                 <div class="good__body">
-                  <h5 class="good__title">{{ key['name'] }}</h5>
+                  <div class="good__title-wrapper">
+                    <h5 class="good__title">{{ key['name'] }}</h5>
+                    <label class="good__check-wrapper" aria-label="Выбрать товар">
+                      <input class="good__check-input" type="checkbox">
+                      <span class="good__check-box"></span>
+                    </label>
+                  </div>
                   <div class="good__colors">
                     <p class="good__color-text">Цвет:</p>
                     <span class="good__color-item" v-for="color in key['color']"
@@ -108,8 +114,8 @@
                   <p class="good__price">{{ key['count'] }}р.</p>
                 </div>
                 <div class="good__footer">
-                  <button class="good__button"  type="button" @click="addCart(key)">В корзину</button>
-                  <button class="good__button good__button--comm" type="button" >Комментарии</button>
+                  <button class="good__button" type="button" @click="deleteOne(key)">Купить</button>
+                  <button class="good__button good__button--comm" type="button" @click="deleteOne(key['id'])">Удалить</button>
                 </div>
               </div>
             </article>
