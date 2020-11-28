@@ -62,7 +62,8 @@ export default (catalog) => {
         this.buttons[i].isActive = true;
       },
 
-      openComment(id) {
+      openComment(id, current) {
+        current.blur();
         this.modalId = id;
         const modalCommet = document.querySelector('.modal--comment');
         modalOpen(modalCommet);
@@ -79,7 +80,8 @@ export default (catalog) => {
         const parent = text.closest('.form__group');
         parent.classList.remove('form__group--value');
       },
-      addCart(good) {
+      addCart(good, current) {
+        current.blur();
         if (!localStorage.getItem('cart')) {
           localStorage.setItem('cart', []);
           localStorage.setItem('cart', good.id);

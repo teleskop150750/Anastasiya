@@ -97,8 +97,8 @@
                   <p class="good__price">{{ key['count'] }}р.</p>
                 </div>
                 <div class="good__footer">
-                  <button class="good__button" type="button" @click="addCart(key)">В корзину</button>
-                  <button class="good__button good__button--comm" type="button" @click="openComment(key['id'])">Комментарии</button>
+                  <button class="good__button" @click="addCart(key, $event.target)">В корзину</button>
+                  <button class="good__button good__button--comm" @click="openComment(key['id'], $event.target)">Комментарии</button>
                 </div>
               </div>
             </article>

@@ -54,7 +54,7 @@
     <section class="cart main__cart">
       <div class="cart__inner">
         <div class="cart__header">
-          <button class="cart__button cart__button--clear">Удалить все</button>
+          <button class="cart__button cart__button--clear" @click="deleteAll($event.target)">Удалить все</button>
           <div class="cart__bay-all">
             <p class="cart__price-all">Цена: {{ allPrice}}р</p>
             <button class="cart__button cart__button--buy-all">Купить все</button>
@@ -115,7 +115,7 @@
                 </div>
                 <div class="good__footer">
                   <button class="good__button" type="button" @click="deleteOne(key)">Купить</button>
-                  <button class="good__button good__button--comm" type="button" @click="deleteOne(key['id'])">Удалить</button>
+                  <button class="good__button good__button--comm" type="button" @click="deleteOne(key['id'], $event.target)">Удалить</button>
                 </div>
               </div>
             </article>

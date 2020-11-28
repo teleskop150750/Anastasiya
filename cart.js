@@ -38,10 +38,15 @@ const vm = new Vue({
     },
   },
   methods: {
-    deleteOne(id) {
+    deleteOne(id, current) {
+      current.blur();
       const arr = this.arrLS.filter((itemLS) => +itemLS !== id);
       this.arrLS = arr;
       localStorage.setItem('cart', arr);
+    },
+    deleteAll(current) {
+      localStorage.removeItem('cart');
+      this.arrLS = [];
     },
   },
   created() {
