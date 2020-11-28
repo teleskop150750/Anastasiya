@@ -1,6 +1,11 @@
 /* card */
 
-.card {
+.card__wrapper {
+  max-width: 1360px;
+  padding: 0 1rem;
+}
+
+.card__inner {
   width: 100%;
   max-width: 50em;
   padding: 1em;
@@ -12,13 +17,13 @@
 }
 
 @media (min-width: 750px) {
-  .card {
+  .card__inner {
     padding: 2.5em;
   }
 }
 
 @media (min-width: 700px) {
-  .card--form {
+  .card--form .card__inner {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1rem;

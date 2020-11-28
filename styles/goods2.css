@@ -1,0 +1,24 @@
+@media (min-width: 365px) {
+  .goods__list--cart {
+    grid-template-columns: 1fr;
+  }
+
+  .good {
+    font-size: 0.6em;
+  }
+
+  .good--cart {
+    grid-template-rows: min-content;
+    grid-template-columns: 130px 2fr;
+  }
+}
+
+@media (min-width: 465px) {
+  .good--cart {
+    grid-template-columns: 155px 2fr;
+  }
+
+  .good {
+    font-size: 0.8em;
+  }
+}

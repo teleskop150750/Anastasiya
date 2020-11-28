@@ -61,9 +61,9 @@
           </div>
         </div>
 
-        <ul class="goods__list">
+        <ul class="goods__list goods__list--cart">
           <li class="goods__item" v-for="(key, i) in arrBoy">
-            <article class="good goods__good">
+            <article class="good good--cart goods__good">
               <div :id="'carouselExampleControls' + i" data-ride="carousel" class="carousel slide">
                 <div class="carousel-inner">
                   <div v-for="(img,k) in key['img']" v-if="k === 0" class="carousel-item active">

@@ -51,41 +51,45 @@
     <h1 class="visually-hidden">Написать сообщение</h1>
 
     <section class="card card--form">
-      <form class="form card__form">
-        <div class="form__group">
-          <label class="form__label" for="name">Ваше имя</label>
-          <input class="form__input" type="text" id="name" name="name">
-        </div>
+      <div class="card__wrapper">
+        <div class="card__inner">
+          <form class="form card__form">
+            <div class="form__group">
+              <label class="form__label" for="name">Ваше имя</label>
+              <input class="form__input" type="text" id="name" name="name">
+            </div>
 
-        <div class="form__group">
-          <label class="form__label" for="email"> Ваш email</label>
-          <input class="form__input" type="email" id="email" name="email">
-        </div>
+            <div class="form__group">
+              <label class="form__label" for="email"> Ваш email</label>
+              <input class="form__input" type="email" id="email" name="email">
+            </div>
 
-        <div class="form__group">
-          <label class="form__label form__label--value" for="title">Выбирете тему</label>
-          <div class="form__select-wrap">
-            <select class="form__input form__input--select" id="title" name="title">
-              <option value="thanks">Благодарность</option>
-              <option value="sentence">Предложение</option>
-              <option value="complaint">Жалоба</option>
-            </select>
+            <div class="form__group">
+              <label class="form__label form__label--value" for="title">Выбирете тему</label>
+              <div class="form__select-wrap">
+                <select class="form__input form__input--select" id="title" name="title">
+                  <option value="thanks">Благодарность</option>
+                  <option value="sentence">Предложение</option>
+                  <option value="complaint">Жалоба</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form__group form__group--textarea">
+              <label class="form__label form__label--textarea" for="text">Сообщение</label>
+              <textarea class="form__input form__textarea" id="text" name="text"></textarea>
+            </div>
+
+            <button class="form__button" type="submit">Отправить</button>
+          </form>
+
+          <div class="card__img-wrapper">
+            <picture>
+              <source srcset="img/hanger.webp" media="(min-width: 700px)">
+              <img class="card__img" alt="вешалка">
+            </picture>
           </div>
         </div>
-
-        <div class="form__group form__group--textarea">
-          <label class="form__label form__label--textarea" for="text">Сообщение</label>
-          <textarea class="form__input form__textarea" id="text" name="text"></textarea>
-        </div>
-
-        <button class="form__button" type="submit">Отправить</button>
-      </form>
-
-      <div class="card__img-wrapper">
-        <picture>
-          <source srcset="img/hanger.webp" media="(min-width: 700px)">
-          <img class="card__img" alt="вешалка">
-        </picture>
       </div>
     </section>
 
