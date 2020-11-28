@@ -71,7 +71,9 @@ export default (catalog) => {
       },
       addComment() {
         const text = document.querySelector('.form__textarea');
-        const index = this.arrSort.findIndex((item) => item.id === this.modalId);
+        const index = this.arrSort.findIndex(
+          (item) => item.id === this.modalId,
+        );
         this.arrSort[index].coment.push(text.value);
         text.value = '';
         const parent = text.closest('.form__group');
