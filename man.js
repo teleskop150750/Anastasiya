@@ -75,6 +75,8 @@ const vueCatalog = new Vue({
       const index = this.arrSort.findIndex((item) => item.id === this.modalId);
       this.arrSort[index].coment.push(text.value);
       text.value = '';
+      const parent = text.closest('.form__group');
+      parent.classList.remove('form__group--value');
     },
     addCart(good) {
       if (!localStorage.getItem('cart')) {

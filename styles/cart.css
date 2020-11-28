@@ -1,0 +1,28 @@
+/* cart */
+
+.cart__inner {
+  max-width: 1360px;
+  margin: 0 auto;
+}
+
+.cart__header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cart__bay-all {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.cart__button {
+  display: block;
+  padding: 0.5em 1em;
+  color: var(--color-white);
+  cursor: pointer;
+  background-color: var(--color-melrose);
+  border-radius: 3px;
+  outline: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
