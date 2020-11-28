@@ -50,61 +50,8 @@
   <main class="main page__main" id="catalog_Vue">
     <h1 class="visually-hidden">Корзина</h1>
 
-    <section class="goods main__goods">
-      <div class="goods__inner">
-        <div class="goods__buttons">
-          <button class="goods__button" type="button" v-for="(button, i) in buttons"
-            :class="{ 'goods__button--active': button['isActive'] }"
-            @click="sortGoods(button['category'], i)">{{ button['name'] }}</button>
-        </div>
-
-        <ul class="goods__list">
-          <li class="goods__item" v-for="(key, i) in arrSort">
-            <article class="good goods__good">
-              <div :id="'carouselExampleControls' + i" data-ride="carousel" class="carousel slide">
-                <div class="carousel-inner">
-                  <div v-for="(img,k) in key['img']" v-if="k === 0" class="carousel-item active">
-                    <img v-bind:src="'img/' + img" class="d-block w-100" alt="...">
-                  </div>
-                  <div v-else class="carousel-item">
-                    <img v-bind:src="'img/' + img" class="d-block w-100" alt="...">
-                  </div>
-                  <a v-bind:href="'#carouselExampleControls' + i" role="button" data-slide="prev"
-                    class="carousel-control-prev">
-                    <span aria-hidden="true" class="carousel-control-prev-icon"></span>
-                    <span class="sr-only">Previous</span>
-                  </a>
-                  <a v-bind:href="'#carouselExampleControls' + i" role="button" data-slide="next"
-                    class="carousel-control-next">
-                    <span aria-hidden="true" class="carousel-control-next-icon"></span>
-                    <span class="sr-only">Next</span>
-                  </a>
-                </div>
-              </div>
-              <div class="good__content">
-                <div class="good__body">
-                  <h5 class="good__title">{{ key['name'] }}</h5>
-                  <div class="good__colors">
-                    <p class="good__color-text">Цвет:</p>
-                    <span class="good__color-item" v-for="color in key['color']"
-                      :style="{ backgroundColor: color}"></span>
-                  </div>
-                  <div class="good__sizes">
-                    <span class="good__size" v-for="size in key['size']">
-                      {{ size }}
-                    </span>
-                  </div>
-                  <p class="good__price">{{ key['count'] }}р.</p>
-                </div>
-                <div class="good__footer">
-                  <button class="good__button" @click="addCart(key)">В корзину</button>
-                  <button class="good__button good__button--comm" @click="openComment(key['id'])">Комментарии</button>
-                </div>
-              </div>
-            </article>
-          </li>
-        </ul>
-      </div>
+    <section class="cart main__cart">
+      <div class="cart__inner"></div>
     </section>
 
     <div class="modal modal--close modal--cart" style="display: none;">
@@ -147,8 +94,7 @@
     </div>
   </footer>
   <script src="core.js" type="module"></script>
-  <script src="man.js" type="module"></script>
-  <script src="libs/bootstrap.carousel.js" type="module"></script>
+  <script src="cart.js" type="module"></script>
 </body>
 
 </html>
