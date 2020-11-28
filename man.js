@@ -1,4 +1,4 @@
-import womanCatalog from './scripts/womanCatalog.js';
+import manCatalog from './scripts/manCatalog.js';
 import modalOpen from './scripts/modalOpen.js';
 import inputsFocus from './scripts/inoutsFocus.js';
 import Vue from './libs/vue.esm.browser.min.js';
@@ -100,5 +100,5 @@ const vueCatalog = new Vue({
   },
 });
 
-vueCatalog.arr = womanCatalog;
-vueCatalog.arrSort = womanCatalog;
+vueCatalog.arr = manCatalog;
+vueCatalog.arrSort = manCatalog;

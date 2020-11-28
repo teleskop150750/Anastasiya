@@ -9,7 +9,7 @@ export default (modal) => {
   modal.style.display = getComputedStyle(modal).display;
   modal.classList.add('modal--opening');
 
-  const modalContent = document.querySelector('.modal__content');
+  const modalContent = modal.querySelector('.modal__content');
   const opening = () => {
     modal.classList.remove('modal--close');
     modal.classList.remove('modal--opening');
@@ -35,7 +35,7 @@ export default (modal) => {
       body.classList.remove('page__body--lock');
     }
   };
-  const btnClose = document.querySelector('.modal__button');
+  const btnClose = modal.querySelector('.modal__button');
   btnClose.addEventListener('click', modalClose);
   modal.addEventListener('click', modalClose);
 };
