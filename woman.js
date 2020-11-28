@@ -3,7 +3,7 @@ import modalOpen from './scripts/modalOpen.js';
 import inputsFocus from './scripts/inoutsFocus.js';
 import Vue from './libs/vue.esm.browser.min.js';
 
-const vueCatalog = new Vue({
+const vm = new Vue({
   el: '#catalog_Vue',
   data: {
     buttons: [
@@ -100,7 +100,8 @@ const vueCatalog = new Vue({
       modalOpen(modalCart);
     },
   },
+  created() {
+    this.arr = womanCatalog;
+    this.arrSort = womanCatalog;
+  },
 });
-
-vueCatalog.arr = womanCatalog;
-vueCatalog.arrSort = womanCatalog;

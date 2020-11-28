@@ -3,7 +3,7 @@ import modalOpen from './scripts/modalOpen.js';
 import inputsFocus from './scripts/inoutsFocus.js';
 import Vue from './libs/vue.esm.browser.min.js';
 
-const vueCatalog = new Vue({
+const vm = new Vue({
   el: '#catalog_Vue',
   data: {
     buttons: [
@@ -39,7 +39,6 @@ const vueCatalog = new Vue({
     modaCartTitle: 'Поздравляем',
     modaCartContent: 'Товар добавлен в корзину',
   },
-
   computed: {
     arr_coment() {
       if (this.modalId !== null) {
@@ -100,7 +99,8 @@ const vueCatalog = new Vue({
       modalOpen(modalCart);
     },
   },
+  created() {
+    this.arr = manCatalog;
+    this.arrSort = manCatalog;
+  },
 });
-
-vueCatalog.arr = manCatalog;
-vueCatalog.arrSort = manCatalog;
