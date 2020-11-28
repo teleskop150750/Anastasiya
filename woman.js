@@ -36,12 +36,15 @@ const vueCatalog = new Vue({
     arr: '',
     arrSort: '',
     modalId: null,
-    // arr_coment: '',
   },
 
   computed: {
     arr_coment() {
-      return this.arrSort[this.modalId];
+      if (this.modalId !== null) {
+        const good = this.arrSort.find((item) => item.id === this.modalId);
+        return good.coment;
+      }
+      return [];
     },
   },
   methods: {
@@ -58,13 +61,18 @@ const vueCatalog = new Vue({
       this.buttons[i].isActive = true;
     },
 
-    addComm(id) {
+    openComment(id) {
       this.modalId = id;
       const modal = document.querySelector('.modal');
       modalOpen(modal);
-      // const messForm = document.querySelector('.form');
       const messInputs = document.querySelectorAll('.form__input');
       inputsFocus(messInputs);
+    },
+    addComment() {
+      const text = document.querySelector('.form__textarea');
+      const index = this.arrSort.findIndex((item) => item.id === this.modalId);
+      this.arrSort[index].coment.push(text.value);
+      text.value = '';
     },
   },
 });
