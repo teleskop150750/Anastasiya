@@ -32,8 +32,8 @@ export default (modal) => {
       modal.addEventListener('transitionend', closing);
       modal.style.removeProperty('padding-right');
       body.style.removeProperty('padding-right');
+      body.classList.remove('page__body--lock');
     }
-    body.classList.remove('page__body--lock');
   };
   const btnClose = document.querySelector('.modal__button');
   btnClose.addEventListener('click', modalClose);

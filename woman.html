@@ -98,7 +98,7 @@
                 </div>
                 <div class="good__footer">
                   <button class="good__button">В корзину</button>
-                  <button class="good__button good__button--comm" @click="open">Коментарии</button>
+                  <button class="good__button good__button--comm" @click="addComm(key['id'])">Коментарии</button>
                 </div>
               </div>
             </article>
@@ -114,6 +114,7 @@
           <button class="modal__button" type="button" aria-label="закрыть модальное окно"></button>
         </div>
         <div class="modal__body">
+          <p v-for="text in arr_coment">{{text}}</p>
           <form class="form card__form">
             <div class="form__group form__group--textarea">
               <label class="form__label form__label--textarea" for="text">Сообщение</label>

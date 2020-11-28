@@ -106,7 +106,7 @@ export default [
     size: [40, 42, 44, 46, 48, 50, 52],
     color: ['#082567'],
     count: 1100,
-    coment: [],
+    coment: ['1', '34'],
     img: ['tonkij-dzhemper-s-kruzhevnymi-detalyami-sapfir-zhenshiny-razmery-40-54-xn386_2_frf1.webp', 'tonkij-dzhemper-s-kruzhevnymi-detalyami-sapfir-zhenshiny-razmery-40-54-xn386_2_frf3.webp'],
   },
   {
@@ -116,7 +116,7 @@ export default [
     size: [40, 42, 44, 46, 48, 50, 52],
     color: ['#f5f5dc'],
     count: 990,
-    coment: [],
+    coment: ['42341', '34dfg'],
     img: ['futbolka-s-prisobrannoj-gorlovinoj-chernyj-zhenshiny-razmery-40-54-xn377_1_frf1.webp', 'futbolka-s-prisobrannoj-gorlovinoj-chernyj-zhenshiny-razmery-40-54-xn377_1_frf3.webp'],
   },
   {

@@ -35,7 +35,14 @@ const vueCatalog = new Vue({
     ],
     arr: '',
     arrSort: '',
-    arr_coment: '',
+    modalId: null,
+    // arr_coment: '',
+  },
+
+  computed: {
+    arr_coment() {
+      return this.arrSort[this.modalId];
+    },
   },
   methods: {
     sortGoods(category, i) {
@@ -51,7 +58,8 @@ const vueCatalog = new Vue({
       this.buttons[i].isActive = true;
     },
 
-    open() {
+    addComm(id) {
+      this.modalId = id;
       const modal = document.querySelector('.modal');
       modalOpen(modal);
       // const messForm = document.querySelector('.form');
