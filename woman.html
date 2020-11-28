@@ -47,29 +47,84 @@
     </div>
   </header>
 
-  <main class="main page__main">
+  <main class="main page__main" id="catalog_Vue">
     <h1 class="visually-hidden">Написать сообщение</h1>
 
     <section class="goods main__goods">
       <div class="goods__inner">
         <div class="goods__buttons">
-          <button class="goods__button" type="button">Показать все</button>
-          <button class="goods__button" type="button">Куртки</button>
-          <button class="goods__button" type="button">Джинсы</button>
-          <button class="goods__button" type="button">Футболки</button>
-          <button class="goods__button" type="button">Спорт</button>
+          <button class="goods__button" type="button" v-for="(button, i) in buttons"
+            :class="{ 'goods__button--active': button['isActive'] }"
+            @click="sortGoods(button['category'], i)">{{ button['name'] }}</button>
+        </div>
+
+        <ul class="goods__list">
+          <li class="goods__item" v-for="(key, i) in arrSort">
+            <article class="good goods__good">
+              <div :id="'carouselExampleControls' + i" data-ride="carousel" class="carousel slide">
+                <div class="carousel-inner">
+                  <div v-for="(img,k) in key['img']" v-if="k === 0" class="carousel-item active">
+                    <img v-bind:src="'img/' + img" class="d-block w-100" alt="...">
+                  </div>
+                  <div v-else class="carousel-item">
+                    <img v-bind:src="'img/' + img" class="d-block w-100" alt="...">
+                  </div>
+                  <a v-bind:href="'#carouselExampleControls' + i" role="button" data-slide="prev"
+                    class="carousel-control-prev">
+                    <span aria-hidden="true" class="carousel-control-prev-icon"></span>
+                    <span class="sr-only">Previous</span>
+                  </a>
+                  <a v-bind:href="'#carouselExampleControls' + i" role="button" data-slide="next"
+                    class="carousel-control-next">
+                    <span aria-hidden="true" class="carousel-control-next-icon"></span>
+                    <span class="sr-only">Next</span>
+                  </a>
+                </div>
+              </div>
+              <div class="good__content">
+                <div class="good__body">
+                  <h5 class="good__title">{{ key['name'] }}</h5>
+                  <div class="good__colors">
+                    <p class="good__color-text">Цвет:</p>
+                    <span class="good__color-item" v-for="color in key['color']"
+                      :style="{ backgroundColor: color}"></span>
+                  </div>
+                  <div class="good__sizes">
+                    <span class="good__size" v-for="size in key['size']">
+                      {{ size }}
+                    </span>
+                  </div>
+                  <p class="good__price">{{ key['count'] }}р.</p>
+                </div>
+                <div class="good__footer">
+                  <button class="good__button">В корзину</button>
+                  <button class="good__button good__button--comm" @click="open">Коментарии</button>
+                </div>
+              </div>
+            </article>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <div class="modal modal--close" style="display: none;">
+      <div class="modal__content">
+        <div class="modal__header">
+          <h5 class="modal__title">Добавить комметарий</h5>
+          <button class="modal__button" type="button" aria-label="закрыть модальное окно"></button>
+        </div>
+        <div class="modal__body">
+          <form class="form card__form">
+            <div class="form__group form__group--textarea">
+              <label class="form__label form__label--textarea" for="text">Сообщение</label>
+              <textarea class="form__input form__textarea" id="text" name="text"></textarea>
+            </div>
+
+            <button class="form__button" type="submit">Отправить</button>
+          </form>
         </div>
       </div>
-
-      <ul class="goods__list">
-        <li class="goods__item">
-          <article class="good goods__good">
-            <div class="good__slider"></div>
-            .
-          </article>
-        </li>
-      </ul>
-    </section>
+    </div>
   </main>
 
   <footer class="footer page__footer">
@@ -77,20 +132,9 @@
       <p class="footer__copy">ГПОУ ТО "Донской колледж информационных технологий" Кузьмина Анастасия 4-П-1 © 2021</p>
     </div>
   </footer>
-  <div class="modal modal--close" style="display: none;">
-    <div class="modal__content">
-      <div class="modal__header">
-        <h5 class="modal__title">Отправлено</h5>
-        <button class="modal__button" type="button" aria-label="закрыть модальное окно"></button>
-      </div>
-      <div class="modal__body">
-        <p class="modal__text">Спасибо за благодарность.</p>
-        <p class="modal__text">Мы рады что вы остались довольны!</p>
-      </div>
-    </div>
-  </div>
   <script src="core.js" type="module"></script>
-  <!-- <script src="mess.js" type="module"></script> -->
+  <script src="woman.js" type="module"></script>
+  <script src="libs/bootstrap.carousel.js" type="module"></script>
 </body>
 
 </html>

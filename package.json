@@ -40,5 +40,8 @@
       "color-hex-length": "long",
       "declaration-empty-line-before": "never"
     }
+  },
+  "dependencies": {
+    "swiper": "^6.3.5"
   }
 }
