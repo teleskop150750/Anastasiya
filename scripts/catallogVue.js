@@ -43,7 +43,7 @@ export default (catalog) => {
     computed: {
       arr_coment() {
         if (this.modalId !== null) {
-          const good = this.arrSort.find((item) => item.id === this.modalId);
+          const good = this.arr.find((item) => item.id === this.modalId);
           return good.coment;
         }
         return [];
