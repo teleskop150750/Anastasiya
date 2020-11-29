@@ -45,7 +45,7 @@ const vm = new Vue({
         const arr = [];
         this.arrCheck.forEach((itemCheck) => {
           arr.push(
-            this.arrGoodsAll.find((item) => item.id === +itemCheck),
+            this.arrBuy.find((item) => item.id === +itemCheck),
           );
         });
         return arr;
@@ -94,7 +94,7 @@ const vm = new Vue({
     buyModalOpen(flag, current, id = null) {
       this.buyModal = flag;
       if (this.buyModal === 'one') {
-        const goodByItem = this.arrGoodsAll.find((item) => item.id === +id);
+        const goodByItem = this.arrBuy.find((item) => item.id === +id);
         this.idOne = id;
         this.priceOne = goodByItem.count;
       }
