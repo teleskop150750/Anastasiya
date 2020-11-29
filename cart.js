@@ -15,7 +15,6 @@ const vm = new Vue({
     arrLS: [],
     arrCheck: [],
     arrGoodsAll: [],
-    arrGoodsBuy: [],
     priceOne: 0,
     idOne: null,
     buyModal: 'one',

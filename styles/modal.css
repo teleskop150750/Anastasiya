@@ -8,6 +8,7 @@
   height: 100%;
   padding: 1rem;
   overflow: hidden;
+  overflow-y: auto;
   font-size: 1em;
   background-color: var(--color-black-a25);
 }
@@ -19,7 +20,6 @@
 
 .modal--opening,
 .modal--open {
-  overflow-y: auto;
   opacity: 1;
 }
 
@@ -28,7 +28,6 @@
 }
 
 .modal--closing {
-  overflow-y: hidden;
   opacity: 0;
   transition: opacity 0.15s linear 0.2s;
 }
