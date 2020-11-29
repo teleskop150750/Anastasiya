@@ -67,7 +67,7 @@ export default (catalog) => {
         this.modalId = id;
         const modalCommet = document.querySelector('.modal--comment');
         modalOpen(modalCommet);
-        const messInputs = document.querySelectorAll('.form__input');
+        const messInputs = modalCommet.querySelectorAll('.form__input');
         inputsFocus(messInputs);
       },
       addComment() {

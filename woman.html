@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="catalog.css">
 </head>
 
-<body class="page__body">
+<body class="page__body js-scroll">
   <header class="header header--shadow page__header">
     <div class="header__inner">
 
@@ -98,7 +98,8 @@
                 </div>
                 <div class="good__footer">
                   <button class="good__button" @click="addCart(key, $event.target)">В корзину</button>
-                  <button class="good__button good__button--comm" @click="openComment(key['id'], $event.target)">Комментарии</button>
+                  <button class="good__button good__button--comm"
+                    @click="openComment(key['id'], $event.target)">Комментарии</button>
                 </div>
               </div>
             </article>
@@ -107,7 +108,7 @@
       </div>
     </section>
 
-    <div class="modal modal--close modal--cart" style="display: none;">
+    <div class="modal modal--close modal--cart js-scroll" style="display: none;">
       <div class="modal__content">
         <div class="modal__header">
           <h5 class="modal__title">{{ modaCartTitle }}</h5>
@@ -120,7 +121,7 @@
     </div>
 
 
-    <div class="modal modal--close modal--comment" style="display: none;">
+    <div class="modal modal--close modal--comment js-scroll" style="display: none;">
       <div class="modal__content">
         <div class="modal__header">
           <h5 class="modal__title">Добавить комметарий</h5>

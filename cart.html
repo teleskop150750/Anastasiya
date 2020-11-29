@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="cart.css">
 </head>
 
-<body class="page__body">
+<body class="page__body js-scroll">
   <header class="header header--shadow page__header">
     <div class="header__inner">
 
@@ -118,8 +118,9 @@
                   <p class="good__price">{{ key['count'] }}р.</p>
                 </div>
                 <div class="good__footer">
-                  <button class="good__button" type="button" @click="deleteOne(key)">Купить</button>
-                  <button class="good__button good__button--comm" type="button" @click="deleteOne(key['id'], $event.target)">Удалить</button>
+                  <button class="good__button" type="button" @click="buyOneModal(key['id'], $event.target)">Купить</button>
+                  <button class="good__button good__button--comm" type="button"
+                    @click="deleteOne(key['id'], $event.target)">Удалить</button>
                 </div>
               </div>
             </article>
@@ -127,6 +128,45 @@
         </ul>
       </div>
     </section>
+
+    <div class="modal modal--close modal--buy js-scroll" style="display: none;">
+      <div class="modal__content">
+        <div class="modal__header">
+          <h5 class="modal__title">Покупка на сумму {{ priceOne }}</h5>
+          <button class="modal__button" type="button" aria-label="закрыть модальное окно"></button>
+        </div>
+        <div class="modal__body">
+          <form class="form card__form" @submit.prevent="buyOne($event.target)">
+            <div class="form__group">
+              <label class="form__label" for="numberCart">Номер карты</label>
+              <input class="form__input" type="text" id="numberCart" name="numberCart">
+            </div>
+            <div class="form__group">
+              <label class="form__label" for="name">Имя владельца</label>
+              <input class="form__input" type="text" id="name" name="name">
+            </div>
+            <div class="form__group form__group--value-fix">
+              <label class="form__label" for="date">Дата</label>
+              <input class="form__input" type="date" id="date" name="date">
+            </div>
+            <div class="form__group">
+              <label class="form__label" for="num">Секретный номер</label>
+              <input class="form__input" type="text" id="num" name="num">
+            </div>
+            <div class="form__group">
+              <label class="form__label" for="tel">Номер телефона</label>
+              <input class="form__input" type="text" id="tel" name="tel">
+            </div>
+            <div class="form__group">
+              <label class="form__label" for="adress">Адресс доставки</label>
+              <input class="form__input" type="text" id="adress" name="adress">
+            </div>
+
+            <button class="form__button" type="submit">Отправить</button>
+          </form>
+        </div>
+      </div>
+    </div>
   </main>
 
   <footer class="footer page__footer">

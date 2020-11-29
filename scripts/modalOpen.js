@@ -1,9 +1,10 @@
 /* eslint-disable no-param-reassign */
+import paddingScroll from './padding-skroll.js';
+import modalClose from './modalClose.js';
+
 export default (modal) => {
   const body = document.querySelector('.page__body');
-  const paddingRight = `${window.innerWidth - document.documentElement.clientWidth}px`;
-  body.style.paddingRight = paddingRight;
-  modal.style.paddingRight = paddingRight;
+  paddingScroll.addPadding();
   body.classList.add('page__body--lock');
   modal.style.display = 'flex';
   modal.style.display = getComputedStyle(modal).display;
@@ -18,24 +19,13 @@ export default (modal) => {
   };
   modalContent.addEventListener('transitionend', opening);
 
-  const modalClose = (e) => {
+  const modalCloseHandler = (e) => {
     if (e.target === e.currentTarget) {
-      modal.classList.add('modal--closing');
-      const closing = () => {
-        modal.classList.remove('modal--open');
-        modal.classList.remove('modal--closing');
-        modal.classList.add('modal--close');
-        modal.classList.remove('modal--open');
-        modal.style.display = 'none';
-        modal.removeEventListener('transitionend', closing);
-      };
-      modal.addEventListener('transitionend', closing);
-      modal.style.removeProperty('padding-right');
-      body.style.removeProperty('padding-right');
-      body.classList.remove('page__body--lock');
+      modalClose(modal, body);
     }
   };
   const btnClose = modal.querySelector('.modal__button');
-  btnClose.addEventListener('click', modalClose);
-  modal.addEventListener('click', modalClose);
+  btnClose.focus();
+  btnClose.addEventListener('click', modalCloseHandler);
+  modal.addEventListener('click', modalCloseHandler);
 };

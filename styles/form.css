@@ -112,6 +112,7 @@
   color: var(--color-melrose-dark);
 }
 
+.form__group--value-fix .form__label,
 .form__group--value .form__label {
   top: 0;
   font-size: 0.75em;

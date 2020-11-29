@@ -136,3 +136,72 @@
 .good__button--comm {
   background-color: var(--color-fountain);
 }
+
+/* good--cart */
+
+@media (min-width: 670px) {
+  .goods__list--cart {
+    grid-template-columns: 1fr;
+  }
+
+  .good--cart {
+    grid-template-rows: min-content;
+    grid-template-columns: 200px 2fr;
+  }
+}
+
+@media (min-width: 1050px) {
+  .good--cart {
+    grid-template-rows: min-content;
+    grid-template-columns: 225px 2fr;
+  }
+}
+
+.good--cart .good__title-wrapper {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.good--cart .good__check-wrapper {
+  position: relative;
+}
+
+.good--cart .good__check-input {
+  position: absolute;
+  appearance: none;
+}
+
+.good--cart .good__check-box {
+  display: block;
+  width: 1em;
+  height: 1em;
+  border: 2px solid var(--color-melrose);
+  border-radius: 0.21em;
+}
+
+.good--cart .good__check-input:focus+.good__check-box {
+  border: 2px solid var(--color-melrose-dark);
+}
+
+.good--cart .good__check-input:checked+.good__check-box {
+  background-color: var(--color-melrose);
+  background-image: url('../img/check.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  border: 2px solid var(--color-melrose);
+}
+
+.good--cart .good__check-input:checked:focus+.good__check-box {
+  background-color: var(--color-melrose-dark);
+  background-image: url('../img/check.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  border: 2px solid var(--color-melrose-dark);
+}
+
+.good--cart .good__sizes {
+  font-size: 1em;
+}

@@ -1,4 +1,6 @@
 import inputsFocus from './scripts/inoutsFocus.js';
+import modalOpen from './scripts/modalOpen.js';
+import modalClose from './scripts/modalClose.js';
 import manCatalog from './scripts/manCatalog.js';
 import womanCatalog from './scripts/womanCatalog.js';
 import Vue from './libs/vue.esm.browser.min.js';
@@ -12,6 +14,9 @@ const vm = new Vue({
     arrCheck: [],
     arrGoodsAll: [],
     arrGoodsBuy: [],
+    priceOne: 0,
+    idOne: null,
+    buyModal: 'one',
   },
 
   computed: {
@@ -90,6 +95,27 @@ const vm = new Vue({
         const arrCheck = this.arrCheck.filter((itemLS) => +itemLS !== id);
         this.arrCheck = arrCheck;
       }
+    },
+    buyOneModal(id, current) {
+      const goodByIndex = this.arrGoodsAll.findIndex(
+        (item) => item.id === +id,
+      );
+      if (goodByIndex >= 0) {
+        this.idOne = id;
+        this.priceOne = this.arrGoodsAll[goodByIndex].count;
+      }
+      current.blur();
+      this.buyModal = 'one';
+      const modal = document.querySelector('.modal--buy');
+      modalOpen(modal);
+      const messInputs = modal.querySelectorAll('.form__input');
+      inputsFocus(messInputs);
+    },
+    buyOne(form) {
+      const modal = form.closest('.modal--buy');
+      this.deleteOne(this.idOne);
+      const body = document.querySelector('.page__body');
+      modalClose(modal, body);
     },
   },
   created() {
