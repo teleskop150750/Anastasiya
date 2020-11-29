@@ -59,7 +59,7 @@
         </div>
 
         <ul class="goods__list">
-          <li class="goods__item" v-for="(key, i) in arrSort">
+          <li class="goods__item" v-for="(key, i) in arrSort" :key="key['id']">
             <article class="good goods__good">
               <div :id="'carouselExampleControls' + i" data-ride="carousel" class="carousel slide">
                 <div class="carousel-inner">

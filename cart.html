@@ -53,16 +53,23 @@
 
     <section class="cart main__cart">
       <div class="cart__inner">
-        <div class="cart__header">
+        <div class="cart__header" v-if="arrCheck.length === 0">
           <button class="cart__button cart__button--clear" @click="deleteAll($event.target)">Удалить все</button>
           <div class="cart__bay-all">
             <p class="cart__price-all">Цена: {{ allPrice}}р.</p>
             <button class="cart__button cart__button--buy-all">Купить все</button>
           </div>
         </div>
+        <div class="cart__header" v-else>
+          <button class="cart__button cart__button--clear" @click="deleteCheck()">Удалить выбранные</button>
+          <div class="cart__bay-all">
+            <p class="cart__price-all">Цена: {{ checkPrice }}р.</p>
+            <button class="cart__button cart__button--buy-all">Купить выбранные</button>
+          </div>
+        </div>
 
         <ul class="goods__list goods__list--cart">
-          <li class="goods__item" v-for="(key, i) in arrBuy">
+          <li class="goods__item" v-for="(key, i) in arrBuy" :key="key['id']">
             <article class="good good--cart goods__good">
               <div :id="'carouselExampleControls' + i" data-ride="carousel" class="carousel slide">
                 <div class="carousel-inner">

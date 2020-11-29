@@ -30,33 +30,41 @@ const vm = new Vue({
       }
       return [];
     },
-    arrBuyCheck() {
-      console.log(2);
-      if (this.arrCheck.length > 0) {
-        const arr = [];
-        this.arrCheck.forEach((itemLS) => {
-          const goodByIndex = this.arrGoodsAll.findIndex(
-            (item) => item.id === +itemLS,
-          );
-          if (goodByIndex >= 0) {
-            arr.push(this.arrGoodsAll[goodByIndex]);
-          }
-        });
-        console.log(...arr);
-        return arr;
-      }
-      return [];
-    },
     allPrice() {
       if (this.arrBuy.length > 0) {
         return this.arrBuy.reduce((sum, current) => sum + current.count, 0);
       }
       return 0;
     },
+    arrBuyCheck() {
+      if (this.arrCheck.length > 0) {
+        const arr = [];
+        this.arrCheck.forEach((itemCheck) => {
+          const goodByIndex = this.arrGoodsAll.findIndex(
+            (item) => item.id === +itemCheck,
+          );
+          if (goodByIndex >= 0) {
+            arr.push(this.arrGoodsAll[goodByIndex]);
+          }
+        });
+        return arr;
+      }
+      return [];
+    },
+    checkPrice() {
+      if (this.arrBuyCheck.length > 0) {
+        return this.arrBuyCheck.reduce(
+          (sum, current) => sum + current.count, 0,
+        );
+      }
+      return 0;
+    },
   },
   methods: {
     deleteOne(id, current) {
-      current.blur();
+      if (current) {
+        current.blur();
+      }
       const arrLS = this.arrLS.filter((itemLS) => +itemLS !== id);
       this.arrLS = arrLS;
       const arrCheck = this.arrCheck.filter((itemLS) => +itemLS !== id);
@@ -68,6 +76,11 @@ const vm = new Vue({
       localStorage.removeItem('cart');
       this.arrLS = [];
       this.arrCheck = [];
+    },
+    deleteCheck() {
+      this.arrCheck.forEach((itemCheck) => {
+        this.deleteOne(itemCheck);
+      });
     },
 
     addCheck(id, current) {
