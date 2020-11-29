@@ -26,12 +26,9 @@ const vm = new Vue({
       if (this.arrLS.length > 0) {
         const arr = [];
         this.arrLS.forEach((itemLS) => {
-          const goodByIndex = this.arrGoodsAll.findIndex(
-            (item) => item.id === +itemLS,
+          arr.push(
+            this.arrGoodsAll.find((item) => item.id === +itemLS),
           );
-          if (goodByIndex >= 0) {
-            arr.push(this.arrGoodsAll[goodByIndex]);
-          }
         });
         return arr;
       }
@@ -47,12 +44,9 @@ const vm = new Vue({
       if (this.arrCheck.length > 0) {
         const arr = [];
         this.arrCheck.forEach((itemCheck) => {
-          const goodByIndex = this.arrGoodsAll.findIndex(
-            (item) => item.id === +itemCheck,
+          arr.push(
+            this.arrGoodsAll.find((item) => item.id === +itemCheck),
           );
-          if (goodByIndex >= 0) {
-            arr.push(this.arrGoodsAll[goodByIndex]);
-          }
         });
         return arr;
       }
@@ -100,13 +94,9 @@ const vm = new Vue({
     buyModalOpen(flag, current, id = null) {
       this.buyModal = flag;
       if (this.buyModal === 'one') {
-        const goodByIndex = this.arrGoodsAll.findIndex(
-          (item) => item.id === +id,
-        );
-        if (goodByIndex >= 0) {
-          this.idOne = id;
-          this.priceOne = this.arrGoodsAll[goodByIndex].count;
-        }
+        const goodByItem = this.arrGoodsAll.find((item) => item.id === +id);
+        this.idOne = id;
+        this.priceOne = goodByItem.count;
       }
       current.blur();
       const modal = document.querySelector('.modal--buy');
