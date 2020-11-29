@@ -54,17 +54,21 @@
     <section class="cart main__cart">
       <div class="cart__inner">
         <div class="cart__header" v-if="arrCheck.length === 0">
-          <button class="cart__button cart__button--clear" @click="deleteAll($event.target)">Удалить все</button>
+          <button class="cart__button cart__button--clear" @click="deleteAll()">Удалить все</button>
           <div class="cart__bay-all">
             <p class="cart__price-all">Цена: {{ allPrice}}р.</p>
-            <button class="cart__button cart__button--buy-all">Купить все</button>
+            <button class="cart__button cart__button--buy-all" @click="buyModalOpen('all', $event.target)">
+              Купить все
+            </button>
           </div>
         </div>
         <div class="cart__header" v-else>
           <button class="cart__button cart__button--clear" @click="deleteCheck()">Удалить выбранные</button>
           <div class="cart__bay-all">
             <p class="cart__price-all">Цена: {{ checkPrice }}р.</p>
-            <button class="cart__button cart__button--buy-all">Купить выбранные</button>
+            <button class="cart__button cart__button--buy-all" @click="buyModalOpen('check', $event.target)">
+              Купить выбранные
+            </button>
           </div>
         </div>
 
@@ -118,7 +122,8 @@
                   <p class="good__price">{{ key['count'] }}р.</p>
                 </div>
                 <div class="good__footer">
-                  <button class="good__button" type="button" @click="buyOneModal(key['id'], $event.target)">Купить</button>
+                  <button class="good__button" type="button"
+                    @click="buyModalOpen('one', $event.target, key['id'])">Купить</button>
                   <button class="good__button good__button--comm" type="button"
                     @click="deleteOne(key['id'], $event.target)">Удалить</button>
                 </div>
@@ -132,11 +137,13 @@
     <div class="modal modal--close modal--buy js-scroll" style="display: none;">
       <div class="modal__content">
         <div class="modal__header">
-          <h5 class="modal__title">Покупка на сумму {{ priceOne }}</h5>
+          <h5 class="modal__title" v-if="buyModal === 'one'">Покупка на сумму {{ priceOne }}</h5>
+          <h5 class="modal__title" v-else-if="buyModal === 'all'">Покупка на сумму {{ allPrice }}</h5>
+          <h5 class="modal__title" v-else-if="buyModal === 'check'">Покупка на сумму {{ checkPrice }}</h5>
           <button class="modal__button" type="button" aria-label="закрыть модальное окно"></button>
         </div>
         <div class="modal__body">
-          <form class="form card__form" @submit.prevent="buyOne($event.target)">
+          <form class="form card__form" @submit.prevent="buyGoods($event.target)">
             <div class="form__group">
               <label class="form__label" for="numberCart">Номер карты</label>
               <input class="form__input" type="text" id="numberCart" name="numberCart">
@@ -161,8 +168,7 @@
               <label class="form__label" for="adress">Адресс доставки</label>
               <input class="form__input" type="text" id="adress" name="adress">
             </div>
-
-            <button class="form__button" type="submit">Отправить</button>
+            <button type="submit" class="form__button">Отправить</button>
           </form>
         </div>
       </div>

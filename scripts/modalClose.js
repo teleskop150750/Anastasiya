@@ -1,4 +1,5 @@
-export default (modal, body) => {
+export default (modal) => {
+  const body = document.querySelector('.page__body');
   modal.classList.add('modal--closing');
   const closing = () => {
     modal.classList.remove('modal--open');

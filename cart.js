@@ -1,4 +1,5 @@
 import inputsFocus from './scripts/inoutsFocus.js';
+import formSubmit from './scripts/formSubmit.js';
 import modalOpen from './scripts/modalOpen.js';
 import modalClose from './scripts/modalClose.js';
 import manCatalog from './scripts/manCatalog.js';
@@ -76,8 +77,7 @@ const vm = new Vue({
       this.arrCheck = arrCheck;
       localStorage.setItem('cart', arrLS);
     },
-    deleteAll(current) {
-      current.blur();
+    deleteAll() {
       localStorage.removeItem('cart');
       this.arrLS = [];
       this.arrCheck = [];
@@ -96,26 +96,46 @@ const vm = new Vue({
         this.arrCheck = arrCheck;
       }
     },
-    buyOneModal(id, current) {
-      const goodByIndex = this.arrGoodsAll.findIndex(
-        (item) => item.id === +id,
-      );
-      if (goodByIndex >= 0) {
-        this.idOne = id;
-        this.priceOne = this.arrGoodsAll[goodByIndex].count;
+    buyModalOpen(flag, current, id = null) {
+      this.buyModal = flag;
+      if (this.buyModal === 'one') {
+        const goodByIndex = this.arrGoodsAll.findIndex(
+          (item) => item.id === +id,
+        );
+        if (goodByIndex >= 0) {
+          this.idOne = id;
+          this.priceOne = this.arrGoodsAll[goodByIndex].count;
+        }
       }
       current.blur();
-      this.buyModal = 'one';
       const modal = document.querySelector('.modal--buy');
       modalOpen(modal);
       const messInputs = modal.querySelectorAll('.form__input');
       inputsFocus(messInputs);
     },
-    buyOne(form) {
+    buyGoods(form) {
+      const inputs = form.querySelectorAll('.form__input');
       const modal = form.closest('.modal--buy');
-      this.deleteOne(this.idOne);
-      const body = document.querySelector('.page__body');
-      modalClose(modal, body);
+      let cl;
+      if (this.buyModal === 'one') {
+        cl = () => {
+          modalClose(modal);
+          this.deleteOne(this.idOne);
+        };
+      }
+      if (this.buyModal === 'all') {
+        cl = () => {
+          modalClose(modal);
+          this.deleteAll();
+        };
+      }
+      if (this.buyModal === 'check') {
+        cl = () => {
+          modalClose(modal);
+          this.deleteCheck();
+        };
+      }
+      formSubmit(form, inputs, modal, cl);
     },
   },
   created() {

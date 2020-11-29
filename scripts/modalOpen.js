@@ -21,7 +21,7 @@ export default (modal) => {
 
   const modalCloseHandler = (e) => {
     if (e.target === e.currentTarget) {
-      modalClose(modal, body);
+      modalClose(modal);
     }
   };
   const btnClose = modal.querySelector('.modal__button');

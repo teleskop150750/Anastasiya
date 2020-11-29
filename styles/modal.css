@@ -19,11 +19,11 @@
 
 .modal--opening,
 .modal--open {
+  overflow-y: auto;
   opacity: 1;
 }
 
 .modal--open {
-  overflow-y: auto;
   opacity: 1;
 }
 

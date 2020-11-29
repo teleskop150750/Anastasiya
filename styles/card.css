@@ -3,6 +3,7 @@
 .card__wrapper {
   max-width: 1360px;
   padding: 0 1rem;
+  margin: 0 auto;
 }
 
 .card__inner {
