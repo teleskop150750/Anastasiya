@@ -9,9 +9,9 @@ const vm = new Vue({
   el: '#cart',
   data: {
     arrLS: [],
+    arrCheck: [],
     arrGoodsAll: [],
     arrGoodsBuy: [],
-    df: 1234,
   },
 
   computed: {
@@ -30,6 +30,23 @@ const vm = new Vue({
       }
       return [];
     },
+    arrBuyCheck() {
+      console.log(2);
+      if (this.arrCheck.length > 0) {
+        const arr = [];
+        this.arrCheck.forEach((itemLS) => {
+          const goodByIndex = this.arrGoodsAll.findIndex(
+            (item) => item.id === +itemLS,
+          );
+          if (goodByIndex >= 0) {
+            arr.push(this.arrGoodsAll[goodByIndex]);
+          }
+        });
+        console.log(...arr);
+        return arr;
+      }
+      return [];
+    },
     allPrice() {
       if (this.arrBuy.length > 0) {
         return this.arrBuy.reduce((sum, current) => sum + current.count, 0);
@@ -40,13 +57,26 @@ const vm = new Vue({
   methods: {
     deleteOne(id, current) {
       current.blur();
-      const arr = this.arrLS.filter((itemLS) => +itemLS !== id);
-      this.arrLS = arr;
-      localStorage.setItem('cart', arr);
+      const arrLS = this.arrLS.filter((itemLS) => +itemLS !== id);
+      this.arrLS = arrLS;
+      const arrCheck = this.arrCheck.filter((itemLS) => +itemLS !== id);
+      this.arrCheck = arrCheck;
+      localStorage.setItem('cart', arrLS);
     },
     deleteAll(current) {
+      current.blur();
       localStorage.removeItem('cart');
       this.arrLS = [];
+      this.arrCheck = [];
+    },
+
+    addCheck(id, current) {
+      if (current.checked) {
+        this.arrCheck.push(id);
+      } else {
+        const arrCheck = this.arrCheck.filter((itemLS) => +itemLS !== id);
+        this.arrCheck = arrCheck;
+      }
     },
   },
   created() {

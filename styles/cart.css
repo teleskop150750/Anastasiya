@@ -24,12 +24,14 @@
   display: flex;
   gap: 1rem;
   align-items: center;
+  white-space: nowrap;
 }
 
 .cart__button {
   display: block;
   padding: 0.5em 1em;
   color: var(--color-white);
+  white-space: nowrap;
   cursor: pointer;
   background-color: var(--color-melrose);
   border-radius: 3px;

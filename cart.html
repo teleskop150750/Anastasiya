@@ -56,7 +56,7 @@
         <div class="cart__header">
           <button class="cart__button cart__button--clear" @click="deleteAll($event.target)">Удалить все</button>
           <div class="cart__bay-all">
-            <p class="cart__price-all">Цена: {{ allPrice}}р</p>
+            <p class="cart__price-all">Цена: {{ allPrice}}р.</p>
             <button class="cart__button cart__button--buy-all">Купить все</button>
           </div>
         </div>
@@ -89,7 +89,7 @@
                   <div class="good__title-wrapper">
                     <h5 class="good__title">{{ key['name'] }}</h5>
                     <label class="good__check-wrapper" aria-label="Выбрать товар">
-                      <input class="good__check-input" type="checkbox">
+                      <input class="good__check-input" type="checkbox" @change="addCheck(key['id'], $event.target)">
                       <span class="good__check-box"></span>
                     </label>
                   </div>
@@ -99,11 +99,8 @@
                       :style="{ backgroundColor: color}"></span>
                   </div>
                   <div class="good__sizes">
-                    <span class="good__size" v-for="size in key['size']">
-                      {{ size }}
-                    </span>
                     <div class="form__group">
-                      <label class="form__label form__label--value" for="title">Выбирете цвет</label>
+                      <label class="form__label form__label--value" for="title">Выбирете размер</label>
                       <div class="form__select-wrap">
                         <select class="form__input form__input--select" id="title" name="title">
                           <option :value="size" v-for="size in key['size']">{{ size }}</option>
