@@ -3,6 +3,7 @@ import inputsFocus from './inoutsFocus.js';
 import Vue from '../libs/vue.esm.browser.min.js';
 
 export default (catalog) => {
+  // eslint-disable-next-line no-unused-vars
   const vm = new Vue({
     el: '#catalog_Vue',
     data: {

@@ -8,6 +8,7 @@ import Vue from './libs/vue.esm.browser.min.js';
 
 const arrGoodsAll = [...manCatalog, ...womanCatalog];
 
+// eslint-disable-next-line no-unused-vars
 const vm = new Vue({
   el: '#cart',
   data: {

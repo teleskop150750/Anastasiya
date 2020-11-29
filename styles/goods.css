@@ -180,11 +180,11 @@
   border-radius: 0.21em;
 }
 
-.good--cart .good__check-input:focus+.good__check-box {
+.good--cart .good__check-input:focus + .good__check-box {
   border: 2px solid var(--color-melrose-dark);
 }
 
-.good--cart .good__check-input:checked+.good__check-box {
+.good--cart .good__check-input:checked + .good__check-box {
   background-color: var(--color-melrose);
   background-image: url('../img/check.svg');
   background-repeat: no-repeat;
@@ -193,7 +193,7 @@
   border: 2px solid var(--color-melrose);
 }
 
-.good--cart .good__check-input:checked:focus+.good__check-box {
+.good--cart .good__check-input:checked:focus + .good__check-box {
   background-color: var(--color-melrose-dark);
   background-image: url('../img/check.svg');
   background-repeat: no-repeat;

@@ -6,6 +6,7 @@ export default (modal) => {
     modal.classList.remove('modal--closing');
     modal.classList.add('modal--close');
     modal.classList.remove('modal--open');
+    // eslint-disable-next-line no-param-reassign
     modal.style.display = 'none';
     modal.removeEventListener('transitionend', closing);
   };
