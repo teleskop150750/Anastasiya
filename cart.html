@@ -49,15 +49,16 @@
   </header>
 
   <main class="main page__main" id="cart">
+    <h1 class="visually-hidden">Корзина</h1>
     <section class="cart main__cart">
-      <h1 class="visually-hidden">Корзина</h1>
+      <h2 class="visually-hidden">Список покупок</h2>
       <div class="cart__inner">
-        <div v-if="arrLS.length > 0">
-          <div class="cart__header" v-if="arrCheck.length === 0">
+        <div v-if="idArray.length > 0">
+          <div class="cart__header" v-if="productsCheck.length === 0">
             <button class="cart__button cart__button--clear" @click="deleteAll()">Удалить все</button>
             <div class="cart__bay-all">
-              <p class="cart__price-all">Цена: {{ allPrice}}р.</p>
-              <button class="cart__button cart__button--buy-all" @click="buyModalOpen('all', $event.target)">
+              <p class="cart__price-all">Цена: {{ priceAll}}р.</p>
+              <button class="cart__button cart__button--buy-all" @click="modalOpen('all', $event.target)">
                 Купить все
               </button>
             </div>
@@ -65,19 +66,19 @@
           <div class="cart__header" v-else>
             <button class="cart__button cart__button--clear" @click="deleteCheck()">Удалить выбранные</button>
             <div class="cart__bay-all">
-              <p class="cart__price-all">Цена: {{ checkPrice }}р.</p>
-              <button class="cart__button cart__button--buy-all" @click="buyModalOpen('check', $event.target)">
+              <p class="cart__price-all">Цена: {{ priceCheck }}р.</p>
+              <button class="cart__button cart__button--buy-all" @click="modalOpen('check', $event.target)">
                 Купить выбранные
               </button>
             </div>
           </div>
 
-          <ul class="goods__list goods__list--cart">
-            <li class="goods__item" v-for="(key, i) in arrBuy" :key="key['id']">
-              <article class="good good--cart goods__good">
+          <ul class="cart__list">
+            <li class="cart__item" v-for="(product, i) in productsBuy" :key="product['id']">
+              <article class="product product--cart cart__product">
                 <div :id="'carouselExampleControls' + i" data-ride="carousel" class="carousel slide">
                   <div class="carousel-inner">
-                    <div v-for="(img,k) in key['img']" v-if="k === 0" class="carousel-item active">
+                    <div v-for="(img,k) in product['img']" v-if="k === 0" class="carousel-item active">
                       <img v-bind:src="'img/' + img" class="d-block w-100" alt="...">
                     </div>
                     <div v-else class="carousel-item">
@@ -95,37 +96,38 @@
                     </a>
                   </div>
                 </div>
-                <div class="good__content">
-                  <div class="good__body">
-                    <div class="good__title-wrapper">
-                      <h5 class="good__title">{{ key['name'] }}</h5>
-                      <label class="good__check-wrapper" aria-label="Выбрать товар">
-                        <input class="good__check-input" type="checkbox" @change="addCheck(key['id'], $event.target)">
-                        <span class="good__check-box"></span>
+                <div class="product__content">
+                  <div class="product__body">
+                    <div class="product__title-wrapper">
+                      <h3 class="product__title">{{ product['name'] }}</h3>
+                      <label class="product__check-wrapper" aria-label="Выбрать товар">
+                        <input class="product__check-input" type="checkbox"
+                          @change="addCheck(product, $event.target)">
+                        <span class="product__check-box"></span>
                       </label>
                     </div>
-                    <div class="good__colors">
-                      <p class="good__color-text">Цвет:</p>
-                      <span class="good__color-item" v-for="color in key['color']"
+                    <div class="product__colors">
+                      <p class="product__color-text">Цвет:</p>
+                      <span class="product__color-item" v-for="color in product['color']"
                         :style="{ backgroundColor: color}"></span>
                     </div>
-                    <div class="good__sizes">
-                      <div class="form__group">
-                        <label class="form__label form__label--value" for="title">Выбирете размер</label>
-                        <div class="form__select-wrap">
-                          <select class="form__input form__input--select" id="title" name="title">
-                            <option :value="size" v-for="size in key['size']">{{ size }}</option>
+                    <div class="product__sizes">
+                      <div class="select-group form__group">
+                        <label class="select-group__label" for="title">Выбирете размер</label>
+                        <div class="select-group__select-wrap">
+                          <select class="select-group__select js-input" id="title" name="title">
+                            <option :value="size" v-for="size in product['size']">{{ size }}</option>
                           </select>
                         </div>
                       </div>
                     </div>
-                    <p class="good__price">{{ key['count'] }}р.</p>
+                    <p class="product__price">{{ product['price'] }}р.</p>
                   </div>
-                  <div class="good__footer">
-                    <button class="good__button" type="button"
-                      @click="buyModalOpen('one', $event.target, key['id'])">Купить</button>
-                    <button class="good__button good__button--comm" type="button"
-                      @click="deleteOne(key['id'], $event.target)">Удалить</button>
+                  <div class="product__footer">
+                    <button class="product__button" type="button"
+                      @click="modalOpen('one', $event.target, product['id'])">Купить</button>
+                    <button class="product__button product__button--comm" type="button"
+                      @click="deleteOne(product['id'])">Удалить</button>
                   </div>
                 </div>
               </article>
@@ -141,37 +143,38 @@
     <div class="modal modal--close modal--buy js-scroll" style="display: none;">
       <div class="modal__content">
         <div class="modal__header">
-          <h5 class="modal__title" v-if="buyModal === 'one'">Покупка на сумму {{ priceOne }}</h5>
-          <h5 class="modal__title" v-else-if="buyModal === 'all'">Покупка на сумму {{ allPrice }}</h5>
-          <h5 class="modal__title" v-else-if="buyModal === 'check'">Покупка на сумму {{ checkPrice }}</h5>
+          <h3 class="modal__title" v-if="modalType === 'one'">Покупка на сумму {{ priceOne }}</h3>
+          <h3 class="modal__title" v-else-if="modalType === 'all'">Покупка на сумму {{ priceAll }}</h3>
+          <h3 class="modal__title" v-else-if="modalType === 'check'">Покупка на сумму {{ priceCheck }}</h3>
           <button class="modal__button" type="button" aria-label="закрыть модальное окно"></button>
         </div>
         <div class="modal__body">
-          <form class="form card__form" @submit.prevent="buyGoods($event.target)">
-            <div class="form__group">
-              <label class="form__label" for="numberCart">Номер карты</label>
-              <input class="form__input" type="text" id="numberCart" name="numberCart">
+          <form class="form card__form" @submit.prevent="buyProducts($event.target)">
+            <div class="input-group form__group">
+              <label class="input-group__label" for="numberCart">Номер карты</label>
+              <input class="input-group__input js-input" type="text" id="numberCart" name="numberCart">
             </div>
-            <div class="form__group">
-              <label class="form__label" for="name">Имя владельца</label>
-              <input class="form__input" type="text" id="name" name="name">
+            <div class="input-group form__group">
+              <label class="input-group__label" for="name">Имя владельца</label>
+              <input class="input-group__input js-input" type="text" id="name" name="name">
             </div>
-            <div class="form__group form__group--value-fix">
-              <label class="form__label" for="date">Дата</label>
-              <input class="form__input" type="date" id="date" name="date">
+            <div class="input-group form__group">
+              <label class="input-group__label input-group__label--fix" for="date">Дата</label>
+              <input class="input-group__input js-input" type="date" id="date" name="date">
             </div>
-            <div class="form__group">
-              <label class="form__label" for="num">Секретный номер</label>
-              <input class="form__input" type="text" id="num" name="num">
+            <div class="input-group form__group">
+              <label class="input-group__label" for="num">Секретный номер</label>
+              <input class="input-group__input js-input" type="text" id="num" name="num">
             </div>
-            <div class="form__group">
-              <label class="form__label" for="tel">Номер телефона</label>
-              <input class="form__input" type="text" id="tel" name="tel">
+            <div class="input-group form__group">
+              <label class="input-group__label" for="tel">Номер телефона</label>
+              <input class="input-group__input js-input" type="text" id="tel" name="tel">
             </div>
-            <div class="form__group">
-              <label class="form__label" for="adress">Адресс доставки</label>
-              <input class="form__input" type="text" id="adress" name="adress">
+            <div class="input-group form__group">
+              <label class="input-group__label" for="adress">Адресс доставки</label>
+              <input class="input-group__input js-input" type="text" id="adress" name="adress">
             </div>
+
             <button type="submit" class="form__button">Отправить</button>
           </form>
         </div>

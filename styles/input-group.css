@@ -68,6 +68,7 @@
   transition: 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
+.input-group__label--fix,
 .input-group__label--value {
   top: 0;
   font-size: 0.75em;

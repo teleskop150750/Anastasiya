@@ -1,3 +1,5 @@
-@import 'styles/goods.css';
-@import 'styles/form.css';
 @import 'styles/cart.css';
+@import 'styles/product.css';
+@import 'styles/form.css';
+@import 'styles/select-group.css';
+@import 'styles/input-group.css';

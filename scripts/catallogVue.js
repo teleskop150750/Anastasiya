@@ -88,6 +88,8 @@ export default (catalog) => {
 
         if (!localStorage.getItem('cart')) {
           localStorage.setItem('cart', productId);
+          this.modalTitle = 'Поздравляем';
+          this.modalContent = 'Товар добавлен в корзину';
         } else {
           const idArray = localStorage.getItem('cart')
             .split(',')

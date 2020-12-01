@@ -51,15 +51,13 @@
 }
 
 @media (min-width: 375px) {
-  .products__list {
+  .goods__list {
     grid-template-columns: repeat(auto-fit, 300px);
   }
 }
 
-/* product--cart */
-
 @media (min-width: 670px) {
-  .products__list--cart {
+  .goods__list--cart {
     grid-template-columns: 1fr;
   }
 }

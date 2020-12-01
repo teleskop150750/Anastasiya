@@ -6,137 +6,131 @@ import manCatalog from './scripts/manCatalog.js';
 import womanCatalog from './scripts/womanCatalog.js';
 import Vue from './libs/vue.esm.browser.min.js';
 
-const arrGoodsAll = [...manCatalog, ...womanCatalog];
+const productsAll = [...manCatalog, ...womanCatalog];
 
 // eslint-disable-next-line no-unused-vars
 const vm = new Vue({
   el: '#cart',
   data: {
-    arrLS: [],
-    arrCheck: [],
-    arrGoodsAll: [],
+    idArray: [],
+    productsCheck: [],
+    productsAll: [],
     priceOne: 0,
     idOne: null,
-    buyModal: 'one',
+    modalType: 'one',
   },
 
   computed: {
-    arrBuy() {
-      if (this.arrLS.length > 0) {
+    productsBuy() {
+      if (this.idArray.length > 0) {
         const arr = [];
-        this.arrLS.forEach((itemLS) => {
+        this.idArray.forEach((id) => {
           arr.push(
-            this.arrGoodsAll.find((item) => item.id === +itemLS),
+            this.productsAll.find((item) => item.id === id),
           );
         });
         return arr;
       }
       return [];
     },
-    allPrice() {
-      if (this.arrBuy.length > 0) {
-        return this.arrBuy.reduce((sum, current) => sum + current.count, 0);
+    priceAll() {
+      if (this.productsBuy.length > 0) {
+        return this.productsBuy.reduce(
+          (sum, current) => sum + current.price, 0,
+        );
       }
       return 0;
     },
-    arrBuyCheck() {
-      if (this.arrCheck.length > 0) {
-        const arr = [];
-        this.arrCheck.forEach((itemCheck) => {
-          arr.push(
-            this.arrBuy.find((item) => item.id === +itemCheck),
-          );
-        });
-        return arr;
-      }
-      return [];
-    },
-    checkPrice() {
-      if (this.arrBuyCheck.length > 0) {
-        return this.arrBuyCheck.reduce(
-          (sum, current) => sum + current.count, 0,
+    priceCheck() {
+      if (this.productsCheck.length > 0) {
+        return this.productsCheck.reduce(
+          (sum, current) => sum + current.price, 0,
         );
       }
       return 0;
     },
   },
   methods: {
-    deleteOne(id, current) {
-      if (current) {
-        current.blur();
-      }
-      const arrLS = this.arrLS.filter((itemLS) => +itemLS !== id);
-      this.arrLS = arrLS;
-      const arrCheck = this.arrCheck.filter((itemLS) => +itemLS !== id);
-      this.arrCheck = arrCheck;
-      localStorage.setItem('cart', arrLS);
+    deleteOne(id) {
+      const idArrayFilter = this.idArray.filter((itemLS) => +itemLS !== id);
+      this.idArray = idArrayFilter;
+      localStorage.setItem('cart', idArrayFilter);
     },
     deleteAll() {
       localStorage.removeItem('cart');
-      this.arrLS = [];
-      this.arrCheck = [];
+      this.idArray = [];
+      this.productsCheck = [];
     },
     deleteCheck() {
-      this.arrCheck.forEach((itemCheck) => {
-        this.deleteOne(itemCheck);
+      this.productsCheck.forEach(({ id }) => {
+        const productsCheckFilter = this.productsCheck.filter(
+          (product) => product.id !== id,
+        );
+        this.productsCheck = productsCheckFilter;
+        this.deleteOne(id);
       });
     },
 
-    addCheck(id, current) {
+    addCheck(product, current) {
       if (current.checked) {
-        this.arrCheck.push(id);
+        this.productsCheck.push(product);
       } else {
-        const arrCheck = this.arrCheck.filter((itemLS) => +itemLS !== id);
-        this.arrCheck = arrCheck;
+        const productsCheckFilter = this.productsCheck.filter(
+          ({ id }) => id !== product.id,
+        );
+        this.productsCheck = productsCheckFilter;
       }
     },
-    buyModalOpen(flag, current, id = null) {
-      this.buyModal = flag;
-      if (this.buyModal === 'one') {
-        const goodByItem = this.arrBuy.find((item) => item.id === +id);
+    modalOpen(type, current, id = null) {
+      this.modalType = type;
+      if (this.modalType === 'one') {
+        const productBuyItem = this.productsBuy.find(
+          (item) => item.id === id,
+        );
         this.idOne = id;
-        this.priceOne = goodByItem.count;
+        this.priceOne = productBuyItem.price;
       }
       current.blur();
       const modal = document.querySelector('.modal--buy');
       modalOpen(modal);
-      const messInputs = modal.querySelectorAll('.form__input');
-      inputsFocus(messInputs);
     },
-    buyGoods(form) {
-      const inputs = form.querySelectorAll('.form__input');
+    buyProducts(form) {
+      const inputs = form.querySelectorAll('.js-input');
       const modal = form.closest('.modal--buy');
-      let cl;
-      if (this.buyModal === 'one') {
-        cl = () => {
-          modalClose(modal);
+      let cb;
+      if (this.modalType === 'one') {
+        cb = () => {
           this.deleteOne(this.idOne);
+          this.idOne = null;
+          modalClose(modal);
         };
       }
-      if (this.buyModal === 'all') {
-        cl = () => {
+      if (this.modalType === 'all') {
+        cb = () => {
           modalClose(modal);
           this.deleteAll();
         };
       }
-      if (this.buyModal === 'check') {
-        cl = () => {
+      if (this.modalType === 'check') {
+        cb = () => {
           modalClose(modal);
           this.deleteCheck();
         };
       }
-      formSubmit(form, inputs, modal, cl);
+      formSubmit(inputs, cb);
     },
   },
   created() {
-    this.arrGoodsAll = arrGoodsAll;
+    this.productsAll = productsAll;
     if (localStorage.getItem('cart')) {
-      this.arrLS = localStorage.getItem('cart').split(',');
+      this.idArray = localStorage.getItem('cart')
+        .split(',')
+        .map((id) => +id);
     }
   },
 
   mounted() {
-    const arr = document.querySelectorAll('.form__input');
-    inputsFocus(arr);
+    const inputs = document.querySelectorAll('.js-input');
+    inputsFocus(inputs);
   },
 });
