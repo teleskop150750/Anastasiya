@@ -1,13 +1,13 @@
 import inputsFocus from './scripts/inputsFocus.js';
-import modalOpen from './scripts/modalOpen.js';
 import formSubmit from './scripts/formSubmit.js';
+import modalOpen from './scripts/modalOpen.js';
 
-const modal = document.querySelector('.modal');
 const messForm = document.querySelector('.form');
 const messInputs = messForm.querySelectorAll('.js-input');
 inputsFocus(messInputs);
 
-const cl = () => {
+const cb = () => {
+  const modal = document.querySelector('.modal');
   const modalBody = modal.querySelector('.modal__body');
   let modalBodyValue = '';
   switch (messForm.querySelector('.select-group__select').value) {
@@ -32,12 +32,12 @@ const cl = () => {
       break;
   }
   modalBody.innerHTML = modalBodyValue;
-  formSubmit(messForm, messInputs, modal, modalOpen);
+  modalOpen(modal);
 };
 
 const formSubmitHandler = (e) => {
   e.preventDefault();
-  cl(modal);
+  formSubmit(messInputs, cb);
 };
 
 messForm.addEventListener('submit', formSubmitHandler);

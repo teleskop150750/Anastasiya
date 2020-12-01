@@ -1,6 +1,6 @@
 import inputsDefault from './inputsDefault.js';
 
-export default (form, inputs, modal, cb) => {
+export default (inputs, cb) => {
   let isEmpty = false;
 
   inputs.forEach((input) => {
@@ -14,6 +14,6 @@ export default (form, inputs, modal, cb) => {
 
   if (!isEmpty) {
     inputsDefault(inputs);
-    cb(modal);
+    cb();
   }
 };
