@@ -1,4 +1,4 @@
-import inputsFocus from './scripts/inoutsFocus.js';
+import inputsFocus from './scripts/inputsFocus.js';
 import formSubmit from './scripts/formSubmit.js';
 import modalOpen from './scripts/modalOpen.js';
 import modalClose from './scripts/modalClose.js';

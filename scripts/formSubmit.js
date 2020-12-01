@@ -1,17 +1,21 @@
 import formDefault from './formDefault.js';
 
 export default (form, inputs, modal, cl) => {
-  let isErrors = false;
+  let isEmpty = false;
 
   inputs.forEach((input) => {
     if (input.value.trim() === '') {
-      isErrors = true;
-      const parent = input.closest('.form__group');
-      parent.classList.add('form__group--error');
+      isEmpty = true;
+      const classGroup = input.classList.item(0).replace(/__.+/, '');
+      const group = input.closest(`.${classGroup}`);
+      console.log(classGroup);
+      console.log(group);
+
+      group.classList.add(`${classGroup}--error`);
     }
   });
 
-  if (!isErrors) {
+  if (!isEmpty) {
     formDefault(inputs);
     cl(modal);
   }

@@ -53,20 +53,20 @@
       <div class="card__wrapper">
         <div class="card__inner">
           <form class="form card__form">
-            <div class="form__group">
-              <label class="form__label" for="name">Ваше имя</label>
-              <input class="form__input" type="text" id="name" name="name">
+            <div class="input-group form__group">
+              <label class="input-group__label" for="name">Ваше имя</label>
+              <input class="input-group__input js-input" type="text" id="name" name="name">
             </div>
 
-            <div class="form__group">
-              <label class="form__label" for="email"> Ваш email</label>
-              <input class="form__input" type="email" id="email" name="email">
+            <div class="input-group form__group">
+              <label class="input-group__label" for="email">Ваш email</label>
+              <input class="input-group__input js-input" type="email" id="email" name="email">
             </div>
 
-            <div class="form__group">
-              <label class="form__label form__label--value" for="title">Выбирете тему</label>
-              <div class="form__select-wrap">
-                <select class="form__input form__input--select" id="title" name="title">
+            <div class="select-group form__group">
+              <label class="select-group__label" for="title">Выбирете тему</label>
+              <div class="select-group__select-wrap">
+                <select class="select-group__select js-input" id="title" name="title">
                   <option value="thanks">Благодарность</option>
                   <option value="sentence">Предложение</option>
                   <option value="complaint">Жалоба</option>
@@ -74,9 +74,9 @@
               </div>
             </div>
 
-            <div class="form__group form__group--textarea">
-              <label class="form__label form__label--textarea" for="text">Сообщение</label>
-              <textarea class="form__input form__textarea" id="text" name="text"></textarea>
+            <div class="textarea-group form__group">
+              <label class="textarea-group__label" for="text">Сообщение</label>
+              <textarea class="textarea-group__textarea  js-input" id="text" name="text"></textarea>
             </div>
 
             <button class="form__button" type="submit">Отправить</button>

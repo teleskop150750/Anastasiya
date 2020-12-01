@@ -1,5 +1,5 @@
 import modalOpen from './modalOpen.js';
-import inputsFocus from './inoutsFocus.js';
+import inputsFocus from './inputsFocus.js';
 import Vue from '../libs/vue.esm.browser.min.js';
 
 export default (catalog) => {

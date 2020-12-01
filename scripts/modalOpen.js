@@ -1,5 +1,5 @@
 /* eslint-disable no-param-reassign */
-import paddingScroll from './padding-skroll.js';
+import paddingScroll from './padding-scroll.js';
 import modalClose from './modalClose.js';
 
 export default (modal) => {
