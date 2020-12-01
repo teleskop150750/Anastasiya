@@ -1,6 +1,6 @@
-import formDefault from './formDefault.js';
+import inputsDefault from './inputsDefault.js';
 
-export default (form, inputs, modal, cl) => {
+export default (form, inputs, modal, cb) => {
   let isEmpty = false;
 
   inputs.forEach((input) => {
@@ -8,15 +8,12 @@ export default (form, inputs, modal, cl) => {
       isEmpty = true;
       const classGroup = input.classList.item(0).replace(/__.+/, '');
       const group = input.closest(`.${classGroup}`);
-      console.log(classGroup);
-      console.log(group);
-
       group.classList.add(`${classGroup}--error`);
     }
   });
 
   if (!isEmpty) {
-    formDefault(inputs);
-    cl(modal);
+    inputsDefault(inputs);
+    cb(modal);
   }
 };
