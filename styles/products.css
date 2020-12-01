@@ -51,13 +51,8 @@
 }
 
 @media (min-width: 375px) {
-  .goods__list {
+  .products__list {
     grid-template-columns: repeat(auto-fit, 300px);
   }
 }
 
-@media (min-width: 670px) {
-  .goods__list--cart {
-    grid-template-columns: 1fr;
-  }
-}
