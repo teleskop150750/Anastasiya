@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 export default (inputs) => {
   inputs.forEach((input) => {
     const classGroup = input.classList.item(0).replace(/__.+/, '');

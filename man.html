@@ -48,21 +48,22 @@
   </header>
 
   <main class="main page__main" id="catalog_Vue">
-    <section class="goods main__goods">
-      <h1 class="visually-hidden">Каталог</h1>
-      <div class="goods__inner">
-        <div class="goods__buttons">
-          <button class="goods__button" type="button" v-for="(button, i) in buttons"
-            :class="{ 'goods__button--active': button['isActive'] }"
-            @click="sortGoods(button['category'], i)">{{ button['name'] }}</button>
+    <h1 class="visually-hidden">Каталог</h1>
+    <section class="products main__products">
+      <h2 class="visually-hidden">Мужская одежда</h2>
+      <div class="products__inner">
+        <div class="products__buttons">
+          <button class="products__button" type="button" v-for="(button, i) in buttons"
+            :class="{ 'products__button--active': button['isActive'] }"
+            @click="sortProducts(button['category'], i)">{{ button['name'] }}</button>
         </div>
 
-        <ul class="goods__list">
-          <li class="goods__item" v-for="(key, i) in arrSort" :key="key['id']">
-            <article class="good goods__good">
+        <ul class="products__list">
+          <li class="products__item" v-for="(product, i) in productsSort" :key="product['id']">
+            <article class="product products__product">
               <div :id="'carouselExampleControls' + i" data-ride="carousel" class="carousel slide">
                 <div class="carousel-inner">
-                  <div v-for="(img,k) in key['img']" v-if="k === 0" class="carousel-item active">
+                  <div v-for="(img,k) in product['img']" v-if="k === 0" class="carousel-item active">
                     <img v-bind:src="'img/' + img" class="d-block w-100" alt="...">
                   </div>
                   <div v-else class="carousel-item">
@@ -80,25 +81,25 @@
                   </a>
                 </div>
               </div>
-              <div class="good__content">
-                <div class="good__body">
-                  <h5 class="good__title">{{ key['name'] }}</h5>
-                  <div class="good__colors">
-                    <p class="good__color-text">Цвет:</p>
-                    <span class="good__color-item" v-for="color in key['color']"
+              <div class="product__content">
+                <div class="product__body">
+                  <h3 class="product__title">{{ product['name'] }}</h3>
+                  <div class="product__colors">
+                    <p class="product__color-text">Цвет:</p>
+                    <span class="product__color-item" v-for="color in product['color']"
                       :style="{ backgroundColor: color}"></span>
                   </div>
-                  <div class="good__sizes">
-                    <span class="good__size" v-for="size in key['size']">
+                  <div class="product__sizes">
+                    <span class="product__size" v-for="size in product['size']">
                       {{ size }}
                     </span>
                   </div>
-                  <p class="good__price">{{ key['count'] }}р.</p>
+                  <p class="product__price">{{ product['price'] }}р.</p>
                 </div>
-                <div class="good__footer">
-                  <button class="good__button" @click="addCart(key, $event.target)">В корзину</button>
-                  <button class="good__button good__button--comm"
-                    @click="openComment(key['id'], $event.target)">Комментарии</button>
+                <div class="product__footer">
+                  <button class="product__button" @click="addToCart(product['id'], $event.target)">В корзину</button>
+                  <button class="product__button product__button--comm"
+                    @click="openModalComment(product['id'], $event.target)">Комментарии</button>
                 </div>
               </div>
             </article>
@@ -110,11 +111,11 @@
     <div class="modal modal--close modal--cart js-scroll" style="display: none;">
       <div class="modal__content">
         <div class="modal__header">
-          <h5 class="modal__title">{{ modaCartTitle }}</h5>
+          <h5 class="modal__title">{{ modalTitle }}</h5>
           <button class="modal__button" type="button" aria-label="закрыть модальное окно"></button>
         </div>
         <div class="modal__body">
-          <p>{{ modaCartContent }}</p>
+          <p>{{ modalContent }}</p>
         </div>
       </div>
     </div>
@@ -127,11 +128,11 @@
           <button class="modal__button" type="button" aria-label="закрыть модальное окно"></button>
         </div>
         <div class="modal__body">
-          <p v-for="text in arr_coment">{{text}}</p>
+          <p v-for="comment in comments">{{ comment }}</p>
           <form class="form card__form" @submit.prevent="addComment">
-            <div class="form__group form__group--textarea">
-              <label class="form__label form__label--textarea" for="text">Сообщение</label>
-              <textarea class="form__input form__textarea" id="text" name="text"></textarea>
+            <div class="textarea-group form__group">
+              <label class="textarea-group__label" for="text">Сообщение</label>
+              <textarea class="textarea-group__textarea  js-input" id="text" name="text"></textarea>
             </div>
 
             <button class="form__button" type="submit">Отправить</button>

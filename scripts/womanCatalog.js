@@ -5,8 +5,8 @@ export default [
     category: 'jacket',
     size: [40, 42, 44, 46, 48, 50],
     color: ['#008000'],
-    count: 3200,
-    coment: [
+    price: 3200,
+    comment: [
       'Мое имя - cтершийся Иероглиф,',
       'Мои одежды залатаны ветром,',
       'Что несу я в зажатых ладонях.',
@@ -30,8 +30,8 @@ export default [
     category: 'jacket',
     size: [40, 42, 44, 46, 48, 50, 52],
     color: ['#b46b48'],
-    count: 2800,
-    coment: [
+    price: 2800,
+    comment: [
       'Он не входит в число счастливчиков,',
       'И судьбе его вовсе не жаль.',
       'Его фото не прячет в лифчике,',
@@ -80,8 +80,8 @@ export default [
     category: 'jacket',
     size: [40, 42, 44, 46, 48, 50, 52],
     color: ['black'],
-    count: 4300,
-    coment: [
+    price: 4300,
+    comment: [
       'Это только начало игры,',
       'Будто вниз головой летишь.',
       'Потому будь внимательнее,',
@@ -119,8 +119,8 @@ export default [
     category: 'jacket',
     size: [40, 42, 44, 46, 48, 50, 52],
     color: ['#806b2a'],
-    count: 2300,
-    coment: [
+    price: 2300,
+    comment: [
       'Душа самурая - меч,',
       'Душа самурая - меч.',
       '-',
@@ -163,8 +163,8 @@ export default [
     category: 'jeans',
     size: [40, 42, 44, 46, 48, 50, 52],
     color: ['#1560bd'],
-    count: 800,
-    coment: [
+    price: 800,
+    comment: [
       'За первого встречного выйдет сегодня принцесса',
       'Король безутешен, и в каждом он видит врага.',
       'Кто будет тот встречный угрюмый разбойник из леса,',
@@ -204,8 +204,8 @@ export default [
     category: 'jeans',
     size: [40, 42, 44, 46, 48, 50, 52],
     color: ['#42aaff'],
-    count: 1500,
-    coment: [
+    price: 1500,
+    comment: [
       'Ты кукла из папье-маше,',
       'Твой мир – безоблачная даль.',
       'В твоей игрушечной душе',
@@ -248,8 +248,8 @@ export default [
     category: 'jeans',
     size: [40, 42, 44, 46, 48, 50, 52],
     color: ['#002137'],
-    count: 800,
-    coment: [],
+    price: 800,
+    comment: [],
     img: ['dzhegginsy-s-vysokoj-taliej-temno-sinij-zhenshiny-razmery-40-54-te035_3_frf1.webp', 'dzhegginsy-s-vysokoj-taliej-temno-sinij-zhenshiny-razmery-40-54-te035_3_frf2.webp', 'dzhegginsy-s-vysokoj-taliej-temno-sinij-zhenshiny-razmery-40-54-te035_3_frf4.webp'],
   },
   {
@@ -258,8 +258,8 @@ export default [
     category: 'jeans',
     size: [40, 42, 44, 46, 48, 50, 52],
     color: ['#f5f5dc'],
-    count: 1700,
-    coment: [],
+    price: 1700,
+    comment: [],
     img: ['dzhinsy-standartnogo-kroya-bezhevyj-zhenshiny-razmery-40-54-xk963_1_frf1.webp', 'dzhinsy-standartnogo-kroya-bezhevyj-zhenshiny-razmery-40-54-xk963_1_frf2.webp', 'dzhinsy-standartnogo-kroya-bezhevyj-zhenshiny-razmery-40-54-xk963_1_frf3.webp'],
   },
   {
@@ -268,8 +268,8 @@ export default [
     category: 'undershirt',
     size: [40, 42, 44, 46, 48, 50, 52],
     color: ['white'],
-    count: 990,
-    coment: [],
+    price: 990,
+    comment: [],
     img: ['futbolka-iz-trikotazha-v-rubchik-snezhno-belyj-zhenshiny-razmery-40-54-xx438_1_frf1.webp', 'futbolka-iz-trikotazha-v-rubchik-snezhno-belyj-zhenshiny-razmery-40-54-xx438_1_frf3.webp', 'futbolka-iz-trikotazha-v-rubchik-snezhno-belyj-zhenshiny-razmery-40-54-xx438_1_frf4.webp'],
   },
   {
@@ -278,8 +278,8 @@ export default [
     category: 'undershirt',
     size: [40, 42, 44, 46, 48, 50, 52],
     color: ['white'],
-    count: 750,
-    coment: [],
+    price: 750,
+    comment: [],
     img: ['futbolka-minni-maus-belyj-zhenshiny-razmery-40-54-xs159_12_frf1.webp', 'futbolka-minni-maus-belyj-zhenshiny-razmery-40-54-xs159_12_frf3.webp'],
   },
   {
@@ -288,8 +288,8 @@ export default [
     category: 'undershirt',
     size: [40, 42, 44, 46, 48, 50, 52],
     color: ['#082567'],
-    count: 1100,
-    coment: ['1', '34'],
+    price: 1100,
+    comment: ['1', '34'],
     img: ['tonkij-dzhemper-s-kruzhevnymi-detalyami-sapfir-zhenshiny-razmery-40-54-xn386_2_frf1.webp', 'tonkij-dzhemper-s-kruzhevnymi-detalyami-sapfir-zhenshiny-razmery-40-54-xn386_2_frf3.webp'],
   },
   {
@@ -298,8 +298,8 @@ export default [
     category: 'undershirt',
     size: [40, 42, 44, 46, 48, 50, 52],
     color: ['#f5f5dc'],
-    count: 990,
-    coment: [],
+    price: 990,
+    comment: [],
     img: ['futbolka-s-prisobrannoj-gorlovinoj-chernyj-zhenshiny-razmery-40-54-xn377_1_frf1.webp', 'futbolka-s-prisobrannoj-gorlovinoj-chernyj-zhenshiny-razmery-40-54-xn377_1_frf3.webp'],
   },
   {
@@ -308,8 +308,8 @@ export default [
     category: 'sport',
     size: [40, 42, 44, 46, 48, 50, 52],
     color: ['black'],
-    count: 1100,
-    coment: [],
+    price: 1100,
+    comment: [],
     img: ['byustgalter-so-spinkoj-bortsovkoj-chernyj-zhenskoe-belje-razmery-s-xxl-vt796_2_frf1.webp', 'byustgalter-so-spinkoj-bortsovkoj-chernyj-zhenskoe-belje-razmery-s-xxl-vt796_2_frf2.webp'],
   },
   {
@@ -318,8 +318,8 @@ export default [
     category: 'sport',
     size: [40, 42, 44, 46, 48, 50, 52],
     color: ['black'],
-    count: 400,
-    coment: [],
+    price: 400,
+    comment: [],
     img: ['sportivnye-shorty-iz-moltona-chernyj-zhenshiny-razmery-40-54-xf109_2_frf1.webp', 'sportivnye-shorty-iz-moltona-chernyj-zhenshiny-razmery-40-54-xf109_2_frf2.webp'],
   },
   {
@@ -328,8 +328,8 @@ export default [
     category: 'sport',
     size: [40, 42, 44, 46, 48, 50, 52],
     color: ['black'],
-    count: 650,
-    coment: [],
+    price: 650,
+    comment: [],
     img: ['sportivnye-bryuki-kapri-chernyj-zhenshiny-razmery-40-54-xd359_1_frf1.webp', 'sportivnye-bryuki-kapri-chernyj-zhenshiny-razmery-40-54-xd359_1_frf3.webp'],
   },
 ];
